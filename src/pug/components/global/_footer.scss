@@ -1,0 +1,13 @@
+.footer {
+  text-align: center;
+  padding: 16px 0;
+  &__link {
+    color: $text;
+    &:hover {
+      color: lighten($color: $text, $amount: 100%)
+    }
+  }
+  &__text {
+    font-size: 14px;
+  }
+}

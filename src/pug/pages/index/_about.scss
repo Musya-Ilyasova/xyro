@@ -1,0 +1,20 @@
+.about {
+  padding: 60px 0;
+  text-align: center;
+  @include mq('1280') {
+    padding: 80px 0;
+  }
+  &__title {
+    margin: 0 auto 16px;
+    max-width: 780px;
+  }
+  &__text {
+    margin: 16px 0 8px;
+  }
+}
+.about-img {
+  margin: 40px 0;
+  @include mq('768') {
+    margin: 60px 0;
+  }
+}

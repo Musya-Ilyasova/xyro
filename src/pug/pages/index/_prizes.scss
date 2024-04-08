@@ -1,0 +1,108 @@
+.prizes {
+  padding: 60px 0;
+  @include mq('1280') {
+    padding: 90px 0 80px;
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+
+.prize {
+  flex-grow: 1;
+  display: inline-flex;
+  flex-direction: column;
+  height: 100%;
+  &__title {
+    font-weight: 600;
+    color: $title;
+    letter-spacing: -0.32px;
+    display: block;
+    margin-bottom: 4px;
+    @include mq('768') {
+      font-size: 18px;
+    }
+  }
+  &__text {
+    @include mq('768') {
+      margin-bottom: auto;
+      font-size: 18px;
+      padding-right: 7%;
+    }
+    @include mq('1280') {
+      padding-right: 5%;
+    }
+  }
+  &__img {
+    max-height: 118px;
+    max-width: 100%;
+    margin: 24px 0 0;
+    object-fit: contain;
+    object-position: left;
+    @include mq('768') {
+      margin-top: 32px;
+      max-height: 120px;
+    }
+    @include mq('1280') {
+      max-height: 156px;
+    }
+  }
+}
+
+.prizes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-row-gap: 40px;
+  max-width: 445px;
+  margin: 0 auto;
+  @include mq('768') {
+    grid-template-columns: 275px 1fr;
+    grid-template-rows: repeat(2, auto);
+    grid-column-gap: 20px;
+    grid-row-gap: 32px;
+    max-width: 773px;
+  }
+  @include mq('1280') {
+    max-width: 980px;
+    grid-column-gap: 80px;
+    grid-row-gap: 48px;
+  }
+  &__item {
+    display: flex;
+    &:nth-child(2) {
+      height: 100%;
+      grid-area: 1 / 1 / 3 / 2;
+      .prize__img {
+        @include mq('768') {
+          max-height: 307px;
+        }
+        @include mq('1280') {
+          max-height: 417px;
+          width: 100%;
+        }
+      }
+    }
+    &:first-child {
+      .prize__img {
+        @include mq('768') {
+          max-height: 126px;
+          height: 126px;
+        }
+        @include mq('1280') {
+          max-height: 186px;
+          height: 186px;
+        }
+      }
+    }
+    &:nth-child(3) {
+      .prize:first-child {
+        @include mq('1280') {
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+

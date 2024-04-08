@@ -1,0 +1,140 @@
+.faq {
+  text-align: center;
+  padding-bottom: 120px;
+  &__container {
+    @include mq('1280') {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  &__title {
+    width: 100%;
+  }
+
+}
+.faq-list {
+  color: $white;
+  max-width: 538px;
+  margin: 32px auto;
+  @include mq('768') {
+    margin: 40px auto;
+  }
+  @include mq('1280') {
+    margin: 60px 0 0;
+  }
+}
+
+.faq-item {
+  margin-bottom: 4px;
+  &.open {
+    .icon {
+      transform: rotate(180deg);
+    }
+    .faq-item__text {
+      max-height: 900px;
+      border-radius: 0 0 16px 16px;
+    }
+    .faq-item__title {
+      border-radius: 16px 16px 0 0;
+    }
+  }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: $faqBg;
+    border-radius: 16px;
+    padding: 12px 16px;
+    // transition: $transition;
+    // transition-property: max-height;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease-in-out;
+  }
+  &__question {
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.32px;
+    display: block;
+    text-align: left;
+    font-weight: 500;
+  }
+  &__text {
+    max-height: 0;
+    overflow: hidden;
+    // transition: max-height 0.15s ease-in-out;
+    text-align: left;
+    background: $faqBg;
+    // transition: $transition;
+    p {
+      margin-bottom: 15px;
+      padding-left: 16px;
+      padding-right: 16px;
+      font-size: 16px;
+      color: $text;
+      line-height: 1.5;
+    }
+  }
+}
+
+.faq-sublist {
+  li {
+    position: relative;
+    margin-bottom: 10px;
+    &:before {
+      content: '-';
+      display: inline-block;
+      width: 40px;
+      text-align: center;
+    }
+  }
+  &_num {
+    counter-reset: item;
+    li {
+      &:before {
+        content: counter(item) ")";
+        counter-increment: item;
+      }
+    }
+
+  }
+}
+
+.support {
+  text-align: left;
+  max-width: 538px;
+  margin: 0 auto;
+  @include mq('768') {
+    display: flex;
+    justify-content: space-between;
+  }
+  @include mq('1280') {
+    display: block;
+    margin: 60px 0 0 60px;
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.36px;
+    color: $title;
+    margin-bottom: 8px;
+    display: block;
+    @include mq('768') {
+      font-size: 24px;
+    }
+  }
+  &__text {
+    font-size: 16px;
+    line-height: 1.4;
+    max-width: 334px;
+    @include mq('1280') {
+      margin-top: 10px;
+      margin-bottom: 32px;
+    }
+  }
+}

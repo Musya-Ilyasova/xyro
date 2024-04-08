@@ -1,0 +1,14 @@
+.bottom-timer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 60px 0 30px;
+  background: linear-gradient(0deg, #0A0814 49.64%, rgba(10, 8, 20, 0.00) 100%);
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+
+}

@@ -1,0 +1,5 @@
+/node_modules
+/dist
+/.temporary_cache
+.vercel
+.env

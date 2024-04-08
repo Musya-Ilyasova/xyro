@@ -1,0 +1,42 @@
+$font-family-main: "Poppins", sans-serif;
+//SIZE
+$font-size-main: 16px;
+$font-size-h1: 32px;
+$font-size-h2: 16px;
+//COLORS
+$black: #000;
+$white: #fff;
+$dark: #0A0814;
+$blue: #00B2FF;
+$lightBlue: #3ED1FF;
+$darkBlue: #5F3AF3;
+$beige: #CDCFFD;
+$green: #5FF4AD;
+$gray: #1F1D28;
+$lightGray: #E0DFF0;
+
+
+$main: $green;
+$bg: $dark;
+$title: $white;
+$text: rgba($lightGray, 0.72);
+$link: $main;
+$headerLink: $white;
+$headerLinkColor: $main;
+$list: $green;
+$listText: $white;
+$listBg: rgba(10, 8, 20, 0.80);
+$faqBg: $gray;
+$support: $darkBlue;
+$supportText: rgba($beige, 0.6);
+$menuLink: $white;
+$menuLinkHover: $main;
+$scrollBg: $gray;
+$scrollThumb: $black;
+
+$transition: 0.2s ease-in-out;
+
+
+$breakpoints: ("320": 320px, "768": 768px, "1024": 1024px, "1280": 1280px, "1440": 1440px, "1600": 1600px);
+//width container
+$max-width: 1220px;

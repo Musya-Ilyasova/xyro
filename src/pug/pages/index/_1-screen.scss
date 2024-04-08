@@ -1,0 +1,49 @@
+.first-sc {
+  background: url(../img/bg2x.jpg) no-repeat;
+  background-position: top center;
+  background-size: auto 400px;
+  padding: 56px 0 60px;
+  text-align: center;
+  min-height: 471px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  @include mq('768') {
+    min-height: 594px;
+    background-image: url(../img/bg-desktop.jpg);
+    background-size: auto 556px;
+    padding: 56px 0 60px;
+  }
+  @include mq('1024') {
+    padding: 56px 0 80px;
+    min-height: 670px;
+  }
+  .container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  &__subtitle {
+    color: $lightBlue;
+    background: rgba($lightBlue, 0.12);
+    padding: 0 10px;
+    border-radius: 12px;
+    width: fit-content;
+    height: 23px;
+    line-height: 23px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: -0.26px;
+
+  }
+
+  &__title {
+    margin: 16px 0;
+  }
+
+
+
+}
