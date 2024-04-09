@@ -62,7 +62,7 @@ h3 {
     height: 24px;
   }
   &:hover {
-    color: $blue;
+    color: lighten($color: $blue, $amount: 15%);
     .icon {
       margin-left: 9px;
       fill: lighten($color: $link, $amount: 10%);

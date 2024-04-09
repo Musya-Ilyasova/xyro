@@ -23,6 +23,7 @@
 }
 
 .verify-list {
+  margin-bottom: 16px;
   @include mq('768') {
     display: flex;
     justify-content: center;
@@ -33,7 +34,7 @@
     background: $gray2;
     border-radius: 20px;
     padding: 8px 16px;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     display: flex;
     align-items: center;
     color: $white;
