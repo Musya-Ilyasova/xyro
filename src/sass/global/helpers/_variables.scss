@@ -7,17 +7,25 @@ $font-size-h2: 16px;
 $black: #000;
 $white: #fff;
 $dark: #0A0814;
+$dark2: #18161F;
 $blue: #00B2FF;
 $lightBlue: #3ED1FF;
 $darkBlue: #5F3AF3;
+$darkBlue2: #0B82EF;
 $beige: #CDCFFD;
 $green: #5FF4AD;
+$lightGreen: #71FFCC;
 $gray: #1F1D28;
+$gray2: #24212E;
 $lightGray: #E0DFF0;
+$red: #EF1F44;
+$orange: #FF9900;
 
 
 $main: $green;
+$mainHover: $lightGreen;
 $bg: $dark;
+$bg2: $dark2;
 $title: $white;
 $text: rgba($lightGray, 0.72);
 $link: $main;
@@ -33,6 +41,9 @@ $menuLink: $white;
 $menuLinkHover: $main;
 $scrollBg: $gray;
 $scrollThumb: $black;
+$error: $red;
+$errorBlockBg: rgba($orange, 0.32);
+$errorBlockColor: $orange;
 
 $transition: 0.2s ease-in-out;
 

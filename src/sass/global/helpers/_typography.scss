@@ -48,6 +48,7 @@ h3 {
   font-weight: 500;
   line-height: 1.25;
   color: $blue;
+  white-space: nowrap;
   @include mq('1280') {
     font-size: 18px;
     line-height: 1.4;

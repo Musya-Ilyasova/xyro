@@ -6,10 +6,11 @@
   }
   &__title {
     margin: 0 auto 16px;
-    max-width: 780px;
+    max-width: 805px;
   }
   &__text {
-    margin: 16px 0 8px;
+    margin: 16px auto 8px;
+    max-width: 580px;
   }
 }
 .about-img {

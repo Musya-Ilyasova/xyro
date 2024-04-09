@@ -1,0 +1,66 @@
+.verify {
+  margin-top: -60px;
+  padding: 120px 0 80px;
+  background: $bg2;
+  &__title {
+    margin-bottom: 32px;
+    @include mq('768') {
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto 40px;
+      font-size: 44px;
+    }
+    @include mq('1280') {
+      font-size: 56px;
+    }
+  }
+  .btn {
+    margin: 0 auto;
+    @include mq('768') {
+      margin: 40px auto 0;
+    }
+  }
+}
+
+.verify-list {
+  @include mq('768') {
+    display: flex;
+    justify-content: center;
+    max-width: 790px;
+    margin: 0 auto;
+  }
+  &-item {
+    background: $gray2;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    color: $white;
+    @include mq('768') {
+      background: transparent;
+      flex-direction: column;
+      padding: 0 6px;
+      width: 33%;
+    }
+    &__img {
+      max-height: 56px;
+      max-width: 110px;
+      width: 100%;
+      object-fit: contain;
+      margin-right: 16px;
+      @include mq('768') {
+        margin-right: 0;
+        margin-bottom: 12px;
+        max-height: 92px;
+        height: 92px;
+        max-width: 149px;
+      }
+    }
+    &__text {
+      @include mq('768') {
+        text-align: center;
+      }
+    }
+  }
+}

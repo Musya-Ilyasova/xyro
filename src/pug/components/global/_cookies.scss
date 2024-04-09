@@ -1,0 +1,33 @@
+.cookies {
+  position: fixed;
+  left: 20px;
+  bottom: 30px;
+  backdrop-filter: blur(12px);
+  background: $listBg;
+  border: 1px solid rgba(205, 207, 253, 0.20);
+  z-index: 502;
+  display: flex;
+  padding: 8px 16px;
+  border-radius: 12px;
+  &__btn {
+    margin-left: 24px;
+    background: rgba(205, 207, 253, 0.16);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    padding: 0 12px;
+    letter-spacing: -0.32px;
+    color: rgba(205, 207, 253, 0.60);
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+      color: $white;
+      background: rgba(205, 207, 253, 0.4);
+    }
+  }
+  &__text {
+    line-height: 36px;
+  }
+}

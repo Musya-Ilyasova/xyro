@@ -1,60 +1,122 @@
 .btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   font-weight: 600;
   height: 52px;
   line-height: 52px;
-  padding: 0 32px;
+  padding: 0;
   letter-spacing: -0.32px;
   cursor: pointer;
   overflow: hidden;
+  position: relative;
+  width: 100%;
+  .icon-btn-left, .icon-btn-right {
+    height: 100%;
+    width: 21px;
+    flex-basis: 21px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    transition: $transition;
+  }
+
+  span {
+    display: flex;
+    flex-grow: 3;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-btn-bg-right {
+    left: auto;
+    right: 0;
+  }
+  @include mq('768') {
+    width: 190px;
+  }
+}
+
+.btn_primary {
+  color: $black;
+  .icon-btn-left, .icon-btn-right {
+    fill: $main;
+  }
+  span {
+    background: $main;
+  }
+
+  &:hover {
+    color: $black;
+    .icon-btn-bg {
+      fill: $mainHover;
+    }
+
+  }
 }
 
 .btn_discord {
   color: $white;
-  transition: $transition;
   min-width: 204px;
-  position: relative;
   z-index: 1;
-  &:hover {
-    color: lighten($color: $support, $amount: 20%);
-    .icon-discord {
-      fill: lighten($color: $support, $amount: 20%);
-    }
+  width: 270px;
+  @include mq('768') {
+    width: 270px;
   }
   .icon-discord {
     width: 24px;
     height: 24px;
     margin-right: 10px;
     fill: $white;
-    transition: $transition;
     position: relative;
     z-index: 1;
+    transition: $transition;
   }
 
-  .icon-btn-bg, .icon-btn-bg-big {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    fill: $support;
-    z-index: -1;
+  span {
+    background: $support;
   }
-}
 
-.btn_support {
-  color: $support;
-  .icon-discord {
+  .icon-btn-right, .icon-btn-left {
     fill: $support;
   }
-  .icon-btn-bg {
-    fill: rgba($color: $support, $alpha: 0.16);
-  }
+
   &:hover {
     color: lighten($color: $support, $amount: 20%);
     .icon-discord {
       fill: lighten($color: $support, $amount: 20%);
     }
+  }
+}
+
+.btn_support {
+  max-width: 204px;
+  color: $support;
+  .icon-discord {
+    fill: $support;
+  }
+  span {
+    background: rgba($color: $support, $alpha: 0.16);
+  }
+  .icon-btn-left, .icon-btn-right {
+    fill: rgba($color: $support, $alpha: 0.16);
+  }
+}
+
+.btn__wrapper {
+  position: relative;
+  .error__text {
+    color: $error;
+    font-size: 12px;
+    letter-spacing: -0.24px;
+    text-align: center;
+    margin-top: 8px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+  .error + .error__text {
+    display: block;
   }
 }

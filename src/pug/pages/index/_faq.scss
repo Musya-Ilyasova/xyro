@@ -132,6 +132,7 @@
     font-size: 16px;
     line-height: 1.4;
     max-width: 334px;
+    margin-bottom: 16px;
     @include mq('1280') {
       margin-top: 10px;
       margin-bottom: 32px;

@@ -1,20 +1,23 @@
 //Timer
 const timer = (selectorTimer) => {
-  const deadline = '2023-10-14 23:59';
+  const deadline = '2024-04-18 23:59';
   function getTimeRemaining(endtime) {
-    let hours, minutes, seconds;
+    let days, hours, minutes, seconds;
     const t = Date.parse(endtime) - Date.parse(new Date());
     if(t <= 0) {
+      days = 0;
       hours = 0;
       minutes = 0;
       seconds = 0;
     } else {
+      days = Math.floor((t / (1000*60*60*24)))
       hours = Math.floor((t / (1000*60*60)) % 24);
       minutes = Math.floor((t / 1000 / 60) % 60);
       seconds = Math.floor((t / 1000) % 60);
     }
     return {
       'total': t,
+      'days' : days,
       'hours': hours,
       'minutes': minutes,
       'seconds': seconds
@@ -29,17 +32,19 @@ const timer = (selectorTimer) => {
   }
   function setClock(selector, endtime) {
     const timer = document.querySelector(selector),
-          hours = timer.querySelector('.hour'),
-          minutes = timer.querySelector('.min'),
-          seconds = timer.querySelector('.sec'),
+          days = timer.querySelector('.days .count'),
+          hours = timer.querySelector('.hours .count'),
+          minutes = timer.querySelector('.min .count'),
+          seconds = timer.querySelector('.sec .count'),
           timeInterval = setInterval(updateClock, 1000);
     updateClock();
 
     function updateClock() {
       const t = getTimeRemaining(endtime);
+      days.textContent = getZero(t.days);
       hours.textContent = getZero(t.hours);
       minutes.textContent = getZero(t.minutes);
-      seconds.textContent = getZero(t.seconds);
+      // seconds.textContent = getZero(t.seconds);
 
       if(t.total <= 0) {
         clearInterval(timeInterval);

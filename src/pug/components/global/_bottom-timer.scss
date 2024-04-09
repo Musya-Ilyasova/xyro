@@ -3,12 +3,71 @@
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 500;
   padding: 60px 0 30px;
   background: linear-gradient(0deg, #0A0814 49.64%, rgba(10, 8, 20, 0.00) 100%);
+  @include mq('768') {
+    padding-bottom: 30px;
+  }
 
   &__container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
+  .btn__wrapper {
+    order: 2;
+    @include mq('768') {
+      order: 0;
+    }
+  }
+}
 
+.timer {
+  display: flex;
+  span {
+    display: block;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+    color: $main;
+    position: relative;
+    margin-right: 2px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__wrapper {
+    display: flex;
+    order: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    @include mq('768') {
+      width: fit-content;
+      margin-bottom: 0;
+      margin-left: 24px;
+    }
+  }
+  &__text {
+    color: rgba($color: $main, $alpha: 0.6);
+    letter-spacing: -0.28px;
+    margin-left: 12px;
+    max-width: 160px;
+    font-weight: 500;
+    font-size: 14px;
+
+    b {
+      color: $main;
+    }
+  }
 }
