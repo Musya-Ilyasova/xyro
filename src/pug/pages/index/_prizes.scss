@@ -97,11 +97,10 @@
       }
     }
     &:nth-child(3) {
-      .prize:first-child {
-        @include mq('1280') {
-          margin-right: auto;
-        }
-      }
+      display: grid;
+      grid-template-columns: 1fr 0.7fr;
+      grid-column-gap: 16px;
+      grid-template-rows: auto;
     }
   }
 }
