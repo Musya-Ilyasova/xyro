@@ -4,14 +4,14 @@
   background-size: auto 400px;
   padding: 56px 0 60px;
   text-align: center;
-  min-height: 471px;
+  min-height: 494px;
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   margin-top: -60px;
   @include mq('768') {
-    min-height: 594px;
+    min-height: 645px;
     background-image: url(../img/bg-desktop.jpg);
     background-size: auto 556px;
     padding: 56px 0 60px;

@@ -51,14 +51,18 @@
     fill: $main;
   }
   span {
+    transition: $transition;
     background: $main;
     font-weight: 600;
   }
 
   &:hover {
     color: $black;
-    .icon-btn-bg {
+    .icon-btn-left, .icon-btn-right {
       fill: $mainHover;
+    }
+    span {
+      background: $mainHover;
     }
   }
 }
