@@ -11,7 +11,7 @@
   justify-content: flex-end;
   margin-top: -60px;
   @include mq('768') {
-    min-height: 645px;
+    min-height: 654px;
     background-image: url(../img/bg-desktop.jpg);
     background-size: auto 556px;
     padding: 56px 0 60px;
@@ -19,6 +19,10 @@
   @include mq('1024') {
     padding: 56px 0 80px;
     min-height: 670px;
+  }
+  @include mq('1280') {
+    padding: 56px 0 80px;
+    min-height: 700px;
   }
   .container {
     display: flex;
