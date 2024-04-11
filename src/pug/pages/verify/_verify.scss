@@ -1,3 +1,14 @@
+.verify-page {
+  .faq {
+    @include mq('768') {
+      padding-top: 60px;
+    }
+    @include mq('1280') {
+      padding-top: 80px;
+    }
+  }
+}
+
 .verify {
   margin-top: -60px;
   padding: 120px 0 80px;

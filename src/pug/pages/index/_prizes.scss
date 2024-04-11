@@ -25,14 +25,29 @@
     }
   }
   &__text {
+    padding-right: 7%;
     @include mq('768') {
       margin-bottom: auto;
       font-size: 18px;
-      padding-right: 7%;
     }
     @include mq('1280') {
       padding-right: 5%;
+      max-width: 580px;
     }
+    .beige {
+      color: $beige;
+    }
+    .blue {
+      color: $lightBlue;
+    }
+    .violet {
+      color: $violet;
+    }
+
+    .orange {
+      color: $orange;
+    }
+
   }
   &__img {
     max-height: 118px;

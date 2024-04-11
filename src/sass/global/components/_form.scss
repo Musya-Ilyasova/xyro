@@ -1,0 +1,37 @@
+.input {
+  height: 48px;
+  line-height: 48px;
+  border-radius: 8px;
+  padding: 0 16px;
+  background: $inputBg;
+  border: 1px solid rgba($color: $beige, $alpha: 0.16);
+  width: 100%;
+  color: $white;
+  font-size: 16px;
+  &::placeholder {
+    color: $inputColor;
+  }
+  &.error + .error__msg {
+    display: block;
+    color: $error;
+    width: 100%;
+    text-align: left;
+    margin-top: 4px;
+    font-size: 12px;
+    @include mq('768') {
+      margin-top: 8px;
+      position: absolute;
+      top: 100%;
+    }
+
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+}
+
+.error__msg {
+  display: none;
+}

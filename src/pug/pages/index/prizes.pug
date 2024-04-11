@@ -5,7 +5,15 @@ section.prizes#prizes
       .prizes-grid__item
         .prize
           span.prize__title One of many NFTs
-          p.prize__text Each NFT is a pass to the platform and a valuable prize
+          p.prize__text
+            span.beige Common
+            | ,&nbsp;
+            span.blue Rare
+            | ,&nbsp;
+            span.violet Epic&nbsp;
+            | and&nbsp;
+            span.orange Legendary&nbsp;
+            | — each NFT is a pass to the platform and a valuable prize
           picture
             source(srcset="./img/coins2x.png" media="(min-width: 768px)")
             img.prize__img(src="./img/coins.png", alt="One of many NFTs")

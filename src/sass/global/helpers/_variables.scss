@@ -10,7 +10,8 @@ $dark: #0A0814;
 $dark2: #18161F;
 $blue: #00B2FF;
 $lightBlue: #3ED1FF;
-$darkBlue: #5F3AF3;
+$violet: #5F3AF3;
+$lightViolet: #6944FF;
 $darkBlue2: #0B82EF;
 $beige: #CDCFFD;
 $green: #5FF4AD;
@@ -20,6 +21,7 @@ $gray2: #24212E;
 $lightGray: #E0DFF0;
 $red: #EF1F44;
 $orange: #FF9900;
+
 
 
 $main: $green;
@@ -35,7 +37,8 @@ $list: $green;
 $listText: $white;
 $listBg: rgba(10, 8, 20, 0.80);
 $faqBg: $gray;
-$support: $darkBlue;
+$support: $violet;
+$supportHover: $lightViolet;
 $supportText: rgba($beige, 0.6);
 $menuLink: $white;
 $menuLinkHover: $main;
@@ -44,6 +47,11 @@ $scrollThumb: $black;
 $error: $red;
 $errorBlockBg: rgba($orange, 0.32);
 $errorBlockColor: $orange;
+$disabledBg: rgba($beige, 0.08);
+$disabledColor: rgba($beige, 0.32);
+$inputBg: rgba($beige, 0.16);
+$inputColor: rgba($beige, 0.6);
+
 
 $transition: 0.2s ease-in-out;
 

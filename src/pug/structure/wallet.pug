@@ -2,11 +2,12 @@ include ../mixins/mixins
 doctype html
 html(lang="ru")
   include ../components/global/head
-  body.verify-page
+  body.wallet-page
     include ../components/global/header-half
     //main
     main.main
-      include ../pages/verify/verify
+      include ../pages/wallet/wallet
+      include ../pages/wallet/create
       include ../pages/index/prizes
       include ../pages/index/faq
     include ../components/global/cookies

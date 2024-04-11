@@ -2,12 +2,14 @@ include ../mixins/mixins
 doctype html
 html(lang="ru")
   include ../components/global/head
-  body.verify-page
-    include ../components/global/header-half
+  body.index.winddown-page
+    include ../components/global/header
     //main
     main.main
-      include ../pages/verify/verify
+      include ../pages/index/winddown
       include ../pages/index/prizes
+      include ../pages/index/about
+      include ../pages/index/steps
       include ../pages/index/faq
     include ../components/global/cookies
     include ../components/global/footer

@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   faq();
   wow.init();
   cookies();
-  timer('#mainTimer');
   if(document.body.classList.contains('index')) {
     scrollToTheSection();
+    if(!document.body.classList.contains('winddown')) {
+      timer('#mainTimer');
+    }
   }
 })

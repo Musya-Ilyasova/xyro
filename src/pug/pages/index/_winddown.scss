@@ -1,0 +1,27 @@
+.winddown-page {
+  .first-sc {
+    @include mq('768') {
+      min-height: 700px;
+    }
+    @include mq('1280') {
+      min-height: 742px;
+    }
+  }
+  .first-sc__title {
+    font-size: 32px;
+    letter-spacing: -2.4px;
+    @include mq('768') {
+      font-size: 48px;
+    }
+    @include mq('1280') {
+      font-size: 64px;
+    }
+  }
+  .first-sc__text {
+    max-width: 688px;
+    @include mq('1280') {
+      max-width: 773px;
+    }
+  }
+
+}
