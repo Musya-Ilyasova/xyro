@@ -6,7 +6,7 @@ const gulpSass = $.sass(nodeSass);
 
 const sass = () =>{
   return (
-    app.src("src/sass/style.scss")
+    app.src("src/sass/*.scss")
       .pipe(gulpSass())
       .pipe($.autoprefixer({ grid: "autoplace" }))
       .pipe(gcmq())

@@ -85,3 +85,10 @@ export const imgUpload = () => {
     )
     .pipe(app.dest("dist/upload"));
 };
+
+export const webpImage = () => {
+  return app.src("src/img/**/*")
+    .pipe($.webp())
+    .pipe(app.dest('dist/img/'));
+}
+

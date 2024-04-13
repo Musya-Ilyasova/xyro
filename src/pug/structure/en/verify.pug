@@ -1,0 +1,15 @@
+include ../../mixins/mixins
+doctype html
+html(lang="ru")
+  include ../../components/global/en/head
+  body.verify-page
+    include ../../components/global/en/header-half
+    //main
+    main.main
+      include ../../pages/verify/en/verify
+      include ../../pages/index/en/prizes
+      include ../../pages/index/en/faq
+    include ../../components/global/en/cookies
+    include ../../components/global/en/footer
+    include ../../components/modals/pages
+    include ../../components/global/scripts

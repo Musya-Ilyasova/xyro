@@ -1,0 +1,28 @@
+.bottom-timer
+  .container.bottom-timer__container
+    .btn__wrapper
+      a.btn.btn_discord
+        +icon('btn-left-d')
+        span
+          +icon('discord')
+          | Start with Discord
+        +icon('btn-right-d')
+      p.error__text Try connecting Discord again
+    .timer__wrapper
+      .timer#mainTimer
+        span.days
+          +icon('t-left')
+          .count 09
+        span.hours
+          +icon('t-middle')
+          .count 18
+        span.min
+          +icon('t-right')
+          .count 47
+      p.timer__text
+        b Hurry Up!&nbsp;
+        | The program ends in 9 days
+
+
+
+
