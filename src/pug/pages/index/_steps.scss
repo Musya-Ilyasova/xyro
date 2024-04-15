@@ -22,7 +22,7 @@
     top: 0;
     @include mq('768') {
       background-size: cover;
-      background-image: url(../img/steps-bg-desktop.png)
+      background-image: url(../img/steps-bg-desktop.webp)
     }
     @include mq('1024') {
       background-size: 100% auto;
