@@ -10,6 +10,7 @@ $dark: #0A0814;
 $dark2: #18161F;
 $blue: #00B2FF;
 $lightBlue: #3ED1FF;
+$blue2: #38A0FF;
 $violet: #5F3AF3;
 $lightViolet: #6944FF;
 $darkBlue2: #0B82EF;
@@ -18,6 +19,7 @@ $green: #5FF4AD;
 $lightGreen: #71FFCC;
 $gray: #1F1D28;
 $gray2: #24212E;
+$gray3: rgba(205, 207, 253, 0.16);
 $lightGray: #E0DFF0;
 $red: #EF1F44;
 $orange: #FF9900;
@@ -51,6 +53,8 @@ $disabledBg: rgba($beige, 0.08);
 $disabledColor: rgba($beige, 0.32);
 $inputBg: rgba($beige, 0.16);
 $inputColor: rgba($beige, 0.6);
+$tg: $blue2;
+$logout: $gray3;
 
 
 $transition: 0.2s ease-in-out;

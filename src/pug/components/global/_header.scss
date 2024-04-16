@@ -24,13 +24,14 @@
   margin-left: auto;
   letter-spacing: -0.32px;
   text-transform: uppercase;
-  color: text;
+  color: $text;
   width: 36px;
   height: 36px;
   padding: 8px;
   &__current {
     transition: $transition;
     cursor: pointer;
+    color: $text;
     &:hover {
       color: $white;
     }

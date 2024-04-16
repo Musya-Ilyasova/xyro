@@ -169,4 +169,27 @@
   .icon-btn-left, .icon-btn-right, .icon-btn-left-d, .icon-btn-right-d, .icon-btn-bg {
     fill: $disabledBg;
   }
+
+  .icon-btn-left, .icon-btn-left-d {
+    left: 0px;
+  }
+  .icon-btn-right, .icon-btn-right-d {
+    right: 0px;
+  }
+}
+
+
+.btn.btn_logout {
+  display: block;
+  background: $logout;
+  border-radius: 8px;
+  height: 36px;
+  line-height: 36px;
+  width: 100%;
+  text-align: center;
+  padding: 0 12px;
+  color: rgba($color: $beige, $alpha: 0.6);
+  @include mq('768') {
+    width: fit-content;
+  }
 }

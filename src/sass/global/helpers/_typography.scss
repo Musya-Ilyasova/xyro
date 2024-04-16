@@ -79,3 +79,14 @@ p {
   }
 }
 
+.cabinet-title {
+  font-size: 36px;
+  text-align: left;
+  line-height: 40px;
+  letter-spacing: -1.08px;
+  @include mq('768') {
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: -1.32px;
+  }
+}

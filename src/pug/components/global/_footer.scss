@@ -13,4 +13,24 @@
   &__text {
     font-size: 14px;
   }
+  &_cabinet {
+    .btn {
+      margin-top: 24px;
+      @include mq('768') {
+        margin-top: 0;
+      }
+    }
+    .container {
+      max-width: 692px;
+      margin: 0 8px;
+      width: calc(100% - 16px);
+      @include mq('768') {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
 }

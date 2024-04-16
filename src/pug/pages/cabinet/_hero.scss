@@ -1,0 +1,46 @@
+.hero {
+  background: url(../img/hero-bg.webp) no-repeat;
+  background-position: top center;
+  background-size: auto 396px;
+  padding: 56px 0 20px;
+  text-align: center;
+  min-height: 396px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: -60px;
+  @include mq('768') {
+    min-height: 520px;
+    background-size: auto 520px;
+  }
+  @include mq('1280') {
+    min-height: 580px;
+    background-size: auto 580px;
+  }
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+  &_light {
+    background-image: url(../img/hero-bg-light.webp);
+
+  }
+}
+
+.hero-prizes {
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+  color: $main;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 29px;
+
+  .icon {
+    width: 29px;
+    height: 29px;
+    margin-right: 8px;
+
+  }
+}
