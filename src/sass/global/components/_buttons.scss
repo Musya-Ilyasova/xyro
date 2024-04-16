@@ -193,3 +193,20 @@
     width: fit-content;
   }
 }
+
+.btn_grey {
+  display: block;
+  background: $logout;
+  border-radius: 8px;
+  height: 36px;
+  line-height: 36px;
+  width: 100%;
+  text-align: center;
+  padding: 0 12px;
+  color: $white;
+  transition: $transition;
+  cursor: pointer;
+  &:hover {
+    background: lighten($color: $logout, $amount: 10%)
+  }
+}

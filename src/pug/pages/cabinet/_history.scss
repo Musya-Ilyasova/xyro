@@ -32,28 +32,48 @@
   }
 }
 
-.history-pending {
+.history-list {
   display: flex;
-  background: $gray2;
-  border-radius: 12px;
-  padding: 8px 16px;
-  align-items: center;
-  margin-top: 24px;
-  .icon-clock {
-    width: 36px;
-    height: 36px;
-    margin-right: 12px;
-  }
-  .icon-chevron {
-    width: 16px;
-    height: 24px;
-    margin-left: auto;
-    fill: rgba($color: $beige, $alpha: 0.6);
-  }
-  &__title  {
-    color: $white;
-    font-weight: 500;
-    display: block;
-    margin-bottom: 2px;
+  flex-direction: column;
+  &-item {
+    display: flex;
+    background: $gray2;
+    border-radius: 12px;
+    padding: 8px 16px;
+    align-items: center;
+    margin-top: 24px;
+    cursor: pointer;
+    &__img {
+      width: 36px;
+      height: 36px;
+      margin-right: 12px;
+      display: block;
+      pointer-events: none;
+    }
+    .icon-chevron {
+      width: 16px;
+      height: 24px;
+      margin-left: auto;
+      fill: rgba($color: $beige, $alpha: 0.6);
+      pointer-events: none;
+    }
+    &__content {
+      pointer-events: none;
+    }
+    &__title  {
+      color: $white;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 2px;
+      pointer-events: none;
+    }
+    &__status {
+      pointer-events: none;
+    }
+    a {
+      font-size: 0;
+      position: absolute;
+      pointer-events: none;
+    }
   }
 }

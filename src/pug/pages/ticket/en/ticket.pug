@@ -1,0 +1,60 @@
+section.ticket
+  .ticket-loading
+    video.ticket-loading__video#player(muted autoplay playsinline)
+      source(src="../video/loader_desktop.webm" type="video/webm")
+      source(src="../video/loader_desktop.mp4" type="video/mp4")
+      source(src="../video/loader_desktop.ogg" type="video/ogg")
+  .container.container_min.ticket__container.hide
+    .ticket-img
+      img.ticket-img(src="../img/tickets/playstation.webp", alt="")
+    span.ticket__subtitle
+      +icon('subtitle-left')
+      | YOUR PRIZE
+      +icon('subtitle-right')
+    h1.ticket__title PlayStation 5 Card
+    .playstation-list__wrapper
+      .playstation-list__count
+        span.count 0
+        | /10
+      ul.playstation-list
+        li.playstation-list__item.fill
+          +icon('card-bg')
+        li.playstation-list__item
+          +icon('card-bg')
+        li.playstation-list__item
+          +icon('card-bg')
+        li.playstation-list__item
+          +icon('card-bg')
+        li.playstation-list__item
+          +icon('card-bg')
+        li.playstation-list__item
+          +icon('card-bg')
+        li.playstation-list__item
+          +icon('card-bg')
+        li.playstation-list__item
+          +icon('card-bg')
+        li.playstation-list__item
+          +icon('card-bg')
+        li.playstation-list__item
+          +icon('card-bg')
+    a.btn_grey.ticket__btn(href="../en/cabinet.html") Continue
+      //- a.btn.btn_primary.btn_230(href="account")
+      //-   +icon('btn-back-230')
+      //-   +icon('btn-br-230')
+      //-   +icon('btn-br-top-230')
+      //-   +icon('btn-br-bottom-230')
+      //-   span.btn__text Cool!
+  .container.container_min.ticket__container_error.hide
+    //- .ticket-img
+    //-   img.ticket-img__error(srcset="./img/error2x.webp 2x" src="./img/error.webp", alt="", type="image/webp")
+    //- h1.ticket__title Please draw your
+    //-   br
+    //-   | prize again
+    //- .btn__wrapper.ticket__btn
+    //-   a.btn.btn_primary.btn_230(href="account")
+    //-     +icon('btn-back-230')
+    //-     +icon('btn-br-230')
+    //-     +icon('btn-br-top-230')
+    //-     +icon('btn-br-bottom-230')
+    //-     span.btn__text Open again!
+

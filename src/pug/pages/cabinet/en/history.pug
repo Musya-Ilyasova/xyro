@@ -4,12 +4,26 @@ section.history
       span.arrow
         +icon('arrow-bg')
         +icon('chevron')
-    .history-pending
-      +icon('clock')
-      .history-pending__content
-        span.history-pending__title Welcome prize
-        span.history-pending__status Pending
-      +icon('chevron')
+    ul.history-list
+      li.history-list-item(data-modal="Welcome prize")
+        img.history-list-item__img(src="../img/history/clock.svg", alt="Welcome prize")
+        .history-list-item__content
+          span.history-list-item__title Welcome prize
+          span.history-list-item__status Pending
+        +icon('chevron')
+      li.history-list-item(data-modal="A prize for a friend")
+        img.history-list-item__img(src="../img/history/clock.svg", alt="Prize for your friend")
+        .history-list-item__content
+          span.history-list-item__title Prize for your friend
+          span.history-list-item__status Pending
+        +icon('chevron')
+      li.history-list-item
+        a(href="#openAGift") linkToGift
+        img.history-list-item__img(src="../img/history/gift.svg", alt="Prize for your friend")
+        .history-list-item__content
+          span.history-list-item__title Prize for your friend
+          span.history-list-item__status Open a gift
+        +icon('chevron')
 
 
 

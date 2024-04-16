@@ -5,7 +5,7 @@ section.verify
       li.verify-list-item
         img.verify-list-item__img(src="../img/verify-1.webp", alt="")
         p.verify-list-item__text Join to&nbsp;
-          a.link(href="") XYRO Discord server
+          a.link(href="https://discord.gg/xyro") XYRO Discord server
       li.verify-list-item
         img.verify-list-item__img(src="../img/verify-2.webp", alt="")
         p.verify-list-item__text Tap «Complete» button,
@@ -16,7 +16,8 @@ section.verify
         p.verify-list-item__text Complete the verification
           br
           | in the «✅ verify» channel
-    a.btn.btn_primary
-      +icon('btn-left')
-      span Done! Go next
-      +icon('btn-right')
+    .btn__wrapper
+      a.btn.btn_primary.error
+        +icon('btn-left')
+        span Done! Go next
+        +icon('btn-right')

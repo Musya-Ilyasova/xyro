@@ -3,10 +3,10 @@ section.wallet
     h1.wallet__title Enter your Arbitrum wallet address
     .wallet-form
       .input__wrapper
-        input#wallet(name="wallet", placeholder="0x…").input.error
+        input#wallet(name="wallet", placeholder="0x…").input
         span.error__msg
           span.error__text Invalid wallet format
-      a.btn.btn_primary
+      a.btn.btn_primary#login
         +icon('btn-left')
         span Continue
         +icon('btn-right')

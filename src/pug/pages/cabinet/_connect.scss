@@ -80,6 +80,25 @@
 
       }
     }
+    &.dc {
+      background: $blue3;
+      .connect-list-btn {
+        background: $white;
+        color: $black;
+        &:hover {
+          background: darken($color: $white, $amount: 10%)
+        }
+      }
+      .connect-list-item__title {
+        color: $white;
+      }
+      .connect-list-item__status {
+        color: rgba($color: $white, $alpha: 0.6);
+      }
+      .icon {
+        fill: $white;
+      }
+    }
     &.tg {
       background: $tg;
       .connect-list-btn {
