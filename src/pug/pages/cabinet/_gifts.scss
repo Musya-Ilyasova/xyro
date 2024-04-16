@@ -48,6 +48,14 @@
     align-items: center;
     justify-content: center;
     pointer-events: all;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+      background: rgba($color: $beige, $alpha: 0.32);
+      .icon {
+        fill: rgba($color: $beige, $alpha: 0.8);
+      }
+    }
     &_disabled {
       opacity: 0;
       pointer-events: none;
@@ -56,6 +64,7 @@
       width: 24px;
       height: 24px;
       fill: rgba($color: $beige, $alpha: 0.6);
+      transition: $transition;
     }
   }
   &__left {
