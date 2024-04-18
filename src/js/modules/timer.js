@@ -41,9 +41,9 @@ const timer = (selectorTimer) => {
 
     function updateClock() {
       const t = getTimeRemaining(endtime);
-      days.textContent = getZero(t.days);
-      hours.textContent = getZero(t.hours);
-      minutes.textContent = getZero(t.minutes);
+      days.textContent = `${getZero(t.days)}d`;
+      hours.textContent = `${getZero(t.hours)}h`;
+      minutes.textContent = `${getZero(t.minutes)}m`;
       // seconds.textContent = getZero(t.seconds);
 
       if(t.total <= 0) {
