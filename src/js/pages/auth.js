@@ -57,7 +57,7 @@ export default function authPage () {
         if (!wallet) {
             document.getElementById("wallet").classList.add("error");
             document.querySelectorAll(".error__text").forEach(e => {
-                e.innerHTML = "Please enter your Polygon wallet ID";
+                e.innerHTML = "Please enter your Arbitrum wallet ID";
             });
             return;
         }
