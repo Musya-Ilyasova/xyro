@@ -37,11 +37,13 @@
   &__text {
     font-size: 16px;
   }
-  &__personId {
+  &__ticketId {
     font-weight: 500;
     font-size: 12px;
     letter-spacing: 2.4px;
     text-transform: uppercase;
+    display: block;
+    margin-top: 12px;
   }
 
   &__close {
@@ -56,6 +58,7 @@
     .icon {
       width: 100%;
       height: 100%;
+      pointer-events: none;
     }
   }
   &__container {

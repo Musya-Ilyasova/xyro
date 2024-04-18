@@ -1,8 +1,8 @@
-// import timer from "../modules/timer";
-// import showGetX3 from "../modules/showGetX3";
-// import addNoPrizesTxt from "../modules/addNoPrizesTxt";
-// import addPrizes from "../modules/addPrizes";
+import addHistoryList from "../modules/addHistoryList"
 import logout from "../modules/logout";
+import checkRewardsShards from "../modules/checkRewardsShards";
+import twitterConnect from "../modules/twitterConnect";
+
 
 export default function accountPage() {
     const token = window.localStorage.getItem("grokth_token")
@@ -37,19 +37,44 @@ export default function accountPage() {
     setPendingTicketsData(token);
     setReadyTicketsData(token);
     setCollectedTicketsData(token);
+    twitterConnect(token);
+    eventScrollToNftFaq();
 }
 
-function setParticipantData(p) {
-    // set header
-    let avatar = window.localStorage.getItem('grokth_avatar');
-    let name = window.localStorage.getItem('grokth_avatar');
-    document.querySelectorAll(".userimg").forEach(img => {
-        img.setAttribute("alt", name);
-        if (avatar) {
-            img.setAttribute("src", avatar);
+function scrollToNftFaq() {
+    document.querySelector('#nft').classList.add('open');
+    window.scrollTo({
+        top: document.querySelector('#nft').getBoundingClientRect().top,
+        left: 0,
+        behavior: 'smooth'
+    });
+}
+
+function eventScrollToNftFaq() {
+    if(window.location.href.includes('nft')) {
+        scrollToNftFaq();
+    }
+    const btnModal  = document.querySelector('.modal .btn_grey');
+    btnModal.addEventListener('click', () => {
+        if(btnModal.getAttribute('href').includes('nft')) {
+            scrollToNftFaq();
         }
     });
+}
 
+
+
+
+
+
+
+function setParticipantData(p) {
+    document.querySelector('.dc .connect-list-item__status').textContent = p.auth_data.name;
+    document.querySelector('.tg .connect-list-btn').setAttribute('href', `https://t.me/GrokthXyroStageBot?start=${p.id}`);
+    if(p.rewards_shards) {
+        const list = document.querySelector('.playstation-list__wrapper');
+        checkRewardsShards(list, p.rewards_shards[0].current);
+    }
     // set refLink
     const refUrl = new URL(window.location);
     let path = refUrl.pathname.split('/');
@@ -67,7 +92,7 @@ function setParticipantData(p) {
     });
 
     // set soc links
-    const links = document.querySelectorAll('.bannerinv-socList__link');
+    const links = document.querySelectorAll('.inviting-soclist__link');
     links.forEach(link => {
         if(link.classList.contains('tg')) {
             link.href = ``
@@ -83,27 +108,27 @@ function setParticipantData(p) {
         }
     })
 
-    if (p.promos) {
-        for (let i = 0; i < p.promos.length; i++) {
-            let promo = p.promos[i];
-            if (promo.type === "invite_multiplier") {
-                var date = new Date(promo.end * 1000);
-                document.getElementById("bannerTimer").dataset.deadline = date.toISOString();
-                document.getElementById("modalTimer").dataset.deadline = date.toISOString();
-                timer('#bannerTimer');
-                timer('#modalTimer');
-                let shownPromos = window.localStorage.getItem("grokth_shown_promos") || [];
-                if (shownPromos.indexOf(promo.id) !== -1) {
-                    document.querySelector('.getx3').classList.remove("hide");
-                } else {
-                    showGetX3();
-                    shownPromos.push(promo.id);
-                    window.localStorage.setItem("grokth_shown_promos", shownPromos);
-                }
-                break;
-            }
-        }
-    }
+    // if (p.promos) {
+    //     for (let i = 0; i < p.promos.length; i++) {
+    //         let promo = p.promos[i];
+    //         if (promo.type === "invite_multiplier") {
+    //             var date = new Date(promo.end * 1000);
+    //             document.getElementById("bannerTimer").dataset.deadline = date.toISOString();
+    //             document.getElementById("modalTimer").dataset.deadline = date.toISOString();
+    //             timer('#bannerTimer');
+    //             timer('#modalTimer');
+    //             let shownPromos = window.localStorage.getItem("grokth_shown_promos") || [];
+    //             if (shownPromos.indexOf(promo.id) !== -1) {
+    //                 document.querySelector('.getx3').classList.remove("hide");
+    //             } else {
+    //                 showGetX3();
+    //                 shownPromos.push(promo.id);
+    //                 window.localStorage.setItem("grokth_shown_promos", shownPromos);
+    //             }
+    //             break;
+    //         }
+    //     }
+    // }
 }
 
 function getTicketsData(token, status, limit, callback) {
@@ -142,9 +167,9 @@ function setPendingTicketsData(token) {
 function setReadyTicketsData(token) {
     getTicketsData(token, "ready", 1, (d) => {
         Array.prototype.forEach.call(document.getElementsByClassName("hero-prizes__count"), (e) => {
-            document.querySelector('.hero').classList.add('hero_light')
             e.innerHTML = d.total;
             if (d.items.length > 0) {
+                document.querySelector('.hero').classList.add('hero_light')
                 document.querySelectorAll(".getticket").forEach((e) => {
                     let params = new URLSearchParams();
                     params.append("id", d.items[0].id);
@@ -159,9 +184,12 @@ function setReadyTicketsData(token) {
 function setCollectedTicketsData(token) {
 	getTicketsData(token, "collected", 100, (d) => {
 		if (d.items.length === 0 && !document.body.classList.contains('account-page_ticket')) {
-			// addNoPrizesTxt();
 		} else {
-			addPrizes(d.items);
+            const items = d.items.slice(0, 3);
+            if(items.length>=3) {
+                document.querySelector('.history-list').classList.add('history-list_gradient')
+            }
+            addHistoryList(items);
 		}
 	});
 }

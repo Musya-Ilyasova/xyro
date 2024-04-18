@@ -1,0 +1,15 @@
+.history-page {
+  .footer {
+    padding-bottom: 16px;
+  }
+}
+.history {
+  &__back {
+    color: $text;
+    margin-bottom: 12px;
+    display: block;
+    &:hover {
+      color: darken($color: $text, $amount: 20%)
+    }
+  }
+}

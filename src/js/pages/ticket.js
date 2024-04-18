@@ -26,7 +26,7 @@ export default function ticketPage() {
             res.json().then((response => {
                 document.querySelectorAll(".ticket__title").forEach(e => {
                     isError = false;
-                    getTicketData(response.data.rewards[0].item_id, response.data.rewards[0].name);
+                    getTicketData(response.data.rewards[0]);
                     e.innerHTML = response.data.rewards[0].name;
                     player.addEventListener('canplay', ticketLoadingVideo(isError))
                 })
@@ -40,15 +40,6 @@ export default function ticketPage() {
         isError = true;
         console.error("failed to collect ticket", res);
         player.addEventListener('canplay', ticketLoadingVideo(isError))
-    });
-
-    let avatar = window.localStorage.getItem('grokth_avatar');
-    let name = window.localStorage.getItem('grokth_avatar');
-    document.querySelectorAll(".userimg").forEach(img => {
-        img.setAttribute("alt", name);
-        if (avatar) {
-            img.setAttribute("src", avatar);
-        }
     });
 
 }

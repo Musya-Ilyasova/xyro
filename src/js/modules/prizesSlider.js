@@ -15,7 +15,14 @@ const addSlider = () => {
       range: {
         max: 4,
         align: false
-      }
+      },
+      breakpoints: {
+        '(max-width: 767px)': {
+          range: {
+            max: 7,
+          },
+        },
+      },
     }
   )
   slider.on("optionsChanged", () => {

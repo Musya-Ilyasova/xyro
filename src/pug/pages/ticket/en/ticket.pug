@@ -6,12 +6,16 @@ section.ticket
       source(src="../video/loader_desktop.ogg" type="video/ogg")
   .container.container_min.ticket__container.hide
     .ticket-img
-      img.ticket-img(src="../img/tickets/playstation.webp", alt="")
+      .ticket-img__bg
+        img(src="../img/stars.webp", alt="")
+        img(src="../img/ticket-bg.svg", alt="")
+      img.ticket-img__current(src="../img/tickets/playstation.png", alt="")
     span.ticket__subtitle
       +icon('subtitle-left')
       | YOUR PRIZE
       +icon('subtitle-right')
     h1.ticket__title PlayStation 5 Card
+    p.ticket__text PlayStation 5 Card
     .playstation-list__wrapper
       .playstation-list__count
         span.count 0
@@ -37,24 +41,17 @@ section.ticket
           +icon('card-bg')
         li.playstation-list__item
           +icon('card-bg')
-    a.btn_grey.ticket__btn(href="../en/cabinet.html") Continue
-      //- a.btn.btn_primary.btn_230(href="account")
-      //-   +icon('btn-back-230')
-      //-   +icon('btn-br-230')
-      //-   +icon('btn-br-top-230')
-      //-   +icon('btn-br-bottom-230')
-      //-   span.btn__text Cool!
+    a.btn_grey.ticket__btn(href="../en/cabinet") Continue
   .container.container_min.ticket__container_error.hide
-    //- .ticket-img
-    //-   img.ticket-img__error(srcset="./img/error2x.webp 2x" src="./img/error.webp", alt="", type="image/webp")
-    //- h1.ticket__title Please draw your
-    //-   br
-    //-   | prize again
-    //- .btn__wrapper.ticket__btn
-    //-   a.btn.btn_primary.btn_230(href="account")
-    //-     +icon('btn-back-230')
-    //-     +icon('btn-br-230')
-    //-     +icon('btn-br-top-230')
-    //-     +icon('btn-br-bottom-230')
-    //-     span.btn__text Open again!
+    h1.ticket__title We couldn't open the prize
+    p.ticket__text Your prize has been saved, try punching in again
+    .ticket__prizes
+      .btn__wrapper
+        a.btn.btn_primary.getticket(href="/en/ticket")
+          +icon('btn-left')
+          span Claim your reward
+          +icon('btn-right')
+      a.ticket__back(href="../en/cabinet")
+        +icon('chevron')
+        | Back
 

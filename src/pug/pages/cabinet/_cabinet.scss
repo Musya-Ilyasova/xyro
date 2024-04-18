@@ -50,4 +50,29 @@
     max-width: 564px;
   }
 
+  .footer {
+    padding-bottom: 16px;
+  }
+
+  .history-list {
+    max-height: 205px;
+    overflow: hidden;
+    position: relative;
+    &_gradient {
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+        background: linear-gradient(to bottom, transparent, $bg);
+        @include mq('768') {
+          background: linear-gradient(to bottom, transparent, $bg2);
+        }
+      }
+    }
+  }
+
 }

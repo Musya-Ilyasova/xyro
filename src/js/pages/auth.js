@@ -1,5 +1,3 @@
-import faq from "../modules/faq";
-
 export default function authPage () {
     // redirect to account if authorized
     if (window.localStorage.getItem("grokth_token")) {

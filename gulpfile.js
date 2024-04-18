@@ -36,6 +36,9 @@ export const serve = () => {
   browserSync.init({
     server: {
       baseDir: "./dist",
+      serveStaticOptions: {
+        extensions: ['html']
+      }
     },
   });
 }

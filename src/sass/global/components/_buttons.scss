@@ -207,6 +207,7 @@
   transition: $transition;
   cursor: pointer;
   &:hover {
-    background: lighten($color: $logout, $amount: 10%)
+    background: lighten($color: $logout, $amount: 10%);
+    color: $white;
   }
 }
