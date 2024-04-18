@@ -72,7 +72,6 @@ function setParticipantData(p) {
     }
     // set refLink
     const refUrl = new URL(window.location);
-    // refUrl.searchParams.append("r", p.ref_code)
     let path = `${refUrl.host}/en?r=${p.ref_code}`
     Array.prototype.forEach.call( document.getElementsByClassName("copyInput"), (e) => {
         e.innerHTML = path.replace('https://', '').replace('http://', '');
@@ -88,12 +87,12 @@ function setParticipantData(p) {
     const links = document.querySelectorAll('.inviting-soclist__link');
     links.forEach(link => {
         if(link.classList.contains('tg')) {
-            link.href = ``
+            link.href = `https://t.me/share/url?url=${path}&text=Hey!%20Join%20XYRO%20with%20my%20link%20${path}%20and%20secure%20a%20Whitelist%20NFT,%20cash%20bonuses,%20a%20PlayStation%205,%20or%20other%20valuable%20rewards!`
         } else if(link.classList.contains('tw')) {
-            link.href = ``;
+            link.href = `https://twitter.com/intent/tweet?original_referer=${path}&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&related=xyro&text=Hey!%20Join%20XYRO%20with%20my%20link%20${path}%20and%20secure%20a%20Whitelist%20NFT,%20cash%20bonuses,%20a%20PlayStation%205,%20or%20other%20valuable%20rewards!&url=${path}&hashtags=#xyro%2C#referral`;
         } else if(link.classList.contains('fb')) {
             link.addEventListener('click', function() {
-                window.open('https://www.facebook.com/sharer/sharer.php?u=' + refUrl.toString(),
+                window.open('https://www.facebook.com/sharer/sharer.php?u=' + path.toString(),
                     'facebook-share-dialog',
                     'width=400,height=600'
                 );
