@@ -90,13 +90,6 @@ function setParticipantData(p) {
             link.href = `https://t.me/share/url?url=${path}&text=Hey!%20Join%20XYRO%20with%20my%20link%20${path}%20and%20secure%20a%20Whitelist%20NFT,%20cash%20bonuses,%20a%20PlayStation%205,%20or%20other%20valuable%20rewards!`
         } else if(link.classList.contains('tw')) {
             link.href = `https://twitter.com/intent/tweet?original_referer=${path}&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Eshare%7Ctwgr%5E&related=xyro_io&text=Hey!%20Join%20XYRO%20using%20my%20link%20${path}%20and%20secure%20a%20Whitelist%20NFT,%20cash%20bonuses,%20a%20PlayStation%205,%20or%20other%20valuable%20rewards!&hashtags=xyro,referral,rewards,web3,whitelist,airdrop`;
-        } else if(link.classList.contains('fb')) {
-            link.addEventListener('click', function() {
-                window.open('https://www.facebook.com/sharer/sharer.php?u=' + path.toString(),
-                    'facebook-share-dialog',
-                    'width=400,height=600'
-                );
-            });
         }
     })
 }
