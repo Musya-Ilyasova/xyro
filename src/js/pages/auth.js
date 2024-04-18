@@ -6,7 +6,7 @@ export default function authPage () {
 
     const url = new URL(window.location);
     const authCode = url.searchParams.get("code");
-    const refCode = "TEST";
+    const refCode = url.searchParams.get("state");
     // redirect to index if missing data
     if (!authCode || !refCode) {
         window.location.href = "../en";

@@ -12,9 +12,10 @@ import authPage from "./pages/auth";
 import accountPage from "./pages/account";
 import ticketPage from './pages/ticket';
 import historyPage from './pages/history';
+import indexPage from "./pages/index";
 
 
-// window.defaultCode = "FM1"
+window.defaultCode = "TEST"
 window.campaignID = "661eb6910a3a513613b9ce1b"
 window.apiUrl = "https://staging.grokth.com/api/"
 window.discordLink = "https://discord.com/oauth2/authorize?client_id=1228003487066099845&response_type=code&redirect_uri=https%3A%2F%2Fstaging.grokth.com%2Fen%2Fwallet&scope=identify"
@@ -43,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if(document.body.classList.contains('index')) {
     scrollToTheSection();
+    indexPage();
     if(!document.body.classList.contains('winddown')) {
       timer('#mainTimer');
     }
   }
-
 })
