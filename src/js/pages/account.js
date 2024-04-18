@@ -33,13 +33,14 @@ export default function accountPage() {
     }).catch((res) => {
         console.error("failed to get participant", res);
     });
-    // tickets data
-    setPendingTicketsData(token);
-    setReadyTicketsData(token);
-    setCollectedTicketsData(token);
+    setTicketsData(token);
     twitterConnect(token);
     eventScrollToNftFaq();
+    document.querySelector('.btn_logout').addEventListener('click', () => {
+        logout();
+    })
 }
+
 
 function scrollToNftFaq() {
     document.querySelector('#nft').classList.add('open');
@@ -62,12 +63,6 @@ function eventScrollToNftFaq() {
     });
 }
 
-
-
-
-
-
-
 function setParticipantData(p) {
     document.querySelector('.dc .connect-list-item__status').textContent = p.auth_data.name;
     document.querySelector('.tg .connect-list-btn').setAttribute('href', `https://t.me/GrokthXyroStageBot?start=${p.id}`);
@@ -77,19 +72,17 @@ function setParticipantData(p) {
     }
     // set refLink
     const refUrl = new URL(window.location);
-    let path = refUrl.pathname.split('/');
-    path = path.slice(0, path.length - 1)
-    refUrl.pathname = path.join("/")
-    refUrl.searchParams.append("r", p.ref_code)
-    Array.prototype.forEach.call( document.getElementsByClassName("bannerinv-link__url"), (e) => {
-        e.innerHTML = refUrl.toString().replace('https://', '').replace('http://', '');
-        e.dataset.text = refUrl.toString();
+    // refUrl.searchParams.append("r", p.ref_code)
+    let path = `${refUrl.host}/en?r=${p.ref_code}`
+    Array.prototype.forEach.call( document.getElementsByClassName("copyInput"), (e) => {
+        e.innerHTML = path.replace('https://', '').replace('http://', '');
+        e.dataset.text = path;
     });
 
-    // set friends
-    Array.prototype.forEach.call(document.getElementsByClassName("count-friends"), (e) => {
-        e.innerHTML = p.referrals_count.new || 0;
-    });
+    const searchUrl = new URL(window.location).searchParams;
+    if(searchUrl.has('oauth_token') && searchUrl.has('oauth_verifier')) {
+        setParticipantTwitterData(searchUrl);
+    }
 
     // set soc links
     const links = document.querySelectorAll('.inviting-soclist__link');
@@ -107,34 +100,42 @@ function setParticipantData(p) {
             });
         }
     })
-
-    // if (p.promos) {
-    //     for (let i = 0; i < p.promos.length; i++) {
-    //         let promo = p.promos[i];
-    //         if (promo.type === "invite_multiplier") {
-    //             var date = new Date(promo.end * 1000);
-    //             document.getElementById("bannerTimer").dataset.deadline = date.toISOString();
-    //             document.getElementById("modalTimer").dataset.deadline = date.toISOString();
-    //             timer('#bannerTimer');
-    //             timer('#modalTimer');
-    //             let shownPromos = window.localStorage.getItem("grokth_shown_promos") || [];
-    //             if (shownPromos.indexOf(promo.id) !== -1) {
-    //                 document.querySelector('.getx3').classList.remove("hide");
-    //             } else {
-    //                 showGetX3();
-    //                 shownPromos.push(promo.id);
-    //                 window.localStorage.setItem("grokth_shown_promos", shownPromos);
-    //             }
-    //             break;
-    //         }
-    //     }
-    // }
 }
 
-function getTicketsData(token, status, limit, callback) {
+function setParticipantTwitterData(searchUrl) {
+    const oauthToken = searchUrl.get('oauth_token');
+    const oauthVerifier = searchUrl.get('oauth_verifier');
+
+    fetch(window.apiUrl+"v1/participant/add-social", {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+            campaign_id: window.campaignID,
+            auth: {
+                type:"twitter",
+                data: {
+                    token:  oauthToken,
+                    verifier: oauthVerifier
+                },
+            }
+        }),
+        method: "POST",
+    }).then(res => {
+        if (res.status === 200) {
+            window.location.href = "../en/cabinet";
+        } else {
+            console.error("failed to create participant", res.status);
+        }
+    }).catch((res) => {
+        console.error("failed to create participant", res);
+    });
+}
+
+function getTicketsData(token, limit, callback) {
     const ticketsUrl = new URL(window.apiUrl+ "v1/tickets");
     ticketsUrl.searchParams.set("limit", limit);
-    ticketsUrl.searchParams.set("status", status);
 
     fetch(ticketsUrl, {
       method: "GET",
@@ -156,43 +157,26 @@ function getTicketsData(token, status, limit, callback) {
     });
 }
 
-function setPendingTicketsData(token) {
-    getTicketsData(token, "pending", 1, (d) => {
-        Array.prototype.forEach.call(document.getElementsByClassName("count-pending"), (e) => {
-            e.innerHTML = d.total;
-        });
-    })
-}
-
-function setReadyTicketsData(token) {
-    getTicketsData(token, "ready", 1, (d) => {
-        Array.prototype.forEach.call(document.getElementsByClassName("hero-prizes__count"), (e) => {
-            e.innerHTML = d.total;
-            if (d.items.length > 0) {
-                document.querySelector('.hero').classList.add('hero_light')
-                document.querySelectorAll(".getticket").forEach((e) => {
-                    let params = new URLSearchParams();
-                    params.append("id", d.items[0].id);
-                    e.setAttribute("href", `${e.getAttribute("href")}?${params.toString()}`);
-                    e.classList.remove("btn_disabled");
-                })
-            }
-        });
-    });
-}
-
-function setCollectedTicketsData(token) {
-	getTicketsData(token, "collected", 100, (d) => {
-		if (d.items.length === 0 && !document.body.classList.contains('account-page_ticket')) {
-		} else {
-            const items = d.items.slice(0, 3);
-            if(items.length>=3) {
-                document.querySelector('.history-list').classList.add('history-list_gradient')
-            }
-            addHistoryList(items);
-		}
+function setTicketsData(token) {
+    getTicketsData(token, 100, (d) => {
+        const readyTickets = d.items.filter(item => item.status === "ready");
+        const btn = document.querySelector(".getticket");
+        if(readyTickets.length>0) {
+            document.querySelector(".hero-prizes__count").textContent = readyTickets.length;
+            document.querySelector('.hero').classList.add('hero_light');
+            let params = new URLSearchParams();
+            params.append("id", d.items[0].id);
+            btn.setAttribute("href", `${btn.getAttribute("href")}?${params.toString()}`);
+            btn.classList.remove("btn_disabled");
+        }
+        const items = d.items.slice(0, 3);
+        if(items.length>=3) {
+            document.querySelector('.history-list').classList.add('history-list_gradient')
+        }
+        addHistoryList(items);
 	});
 }
+
 
 
 

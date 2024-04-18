@@ -28,13 +28,16 @@ export default function accountPage() {
         console.error("failed to get participant", res);
     });
     // tickets data
-    setCollectedTicketsData(token);
+    setTicketsData(token);
+    document.querySelector('.btn_logout').addEventListener('click', () => {
+      logout();
+    });
 }
 
-function getTicketsData(token, status, limit, callback) {
+
+function getTicketsData(token, limit, callback) {
   const ticketsUrl = new URL(window.apiUrl+ "v1/tickets");
   ticketsUrl.searchParams.set("limit", limit);
-  ticketsUrl.searchParams.set("status", status);
 
   fetch(ticketsUrl, {
     method: "GET",
@@ -56,15 +59,13 @@ function getTicketsData(token, status, limit, callback) {
   });
 }
 
-
-function setCollectedTicketsData(token) {
-	getTicketsData(token, "collected", 100, (d) => {
-		if (d.items.length === 0 && !document.body.classList.contains('account-page_ticket')) {
-		} else {
-      addHistoryList(d.items);
-		}
-	});
+function setTicketsData(token) {
+  getTicketsData(token, 100, (d) => {
+      const items = d.items;
+      addHistoryList(items);
+  });
 }
+
 
 
 

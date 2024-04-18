@@ -27,7 +27,6 @@ export default function ticketPage() {
                 document.querySelectorAll(".ticket__title").forEach(e => {
                     isError = false;
                     getTicketData(response.data.rewards[0]);
-                    e.innerHTML = response.data.rewards[0].name;
                     player.addEventListener('canplay', ticketLoadingVideo(isError))
                 })
             }));
@@ -41,5 +40,9 @@ export default function ticketPage() {
         console.error("failed to collect ticket", res);
         player.addEventListener('canplay', ticketLoadingVideo(isError))
     });
+
+    document.querySelector('.btn_logout').addEventListener('click', () => {
+        logout();
+    })
 
 }

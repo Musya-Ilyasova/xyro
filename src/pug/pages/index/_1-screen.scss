@@ -49,7 +49,7 @@
     margin: 16px auto;
     max-width: 688px;
     @include mq('1280') {
-      max-width: 773px;
+      max-width: 100%;
 
     }
   }

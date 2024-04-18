@@ -62,31 +62,43 @@ const addHistoryList = (data) => {
     title.classList.add('history-list-item__title');
     const status = document.createElement('span');
     status.classList.add('history-list-item__status');
-    setName(title, itemData);
     li.setAttribute('data-id', item.id);
 
-    if(item.status === "collected") {
-      status.textContent = setDataTime(item.created);
-      createImgPrize(img, itemData.item_id, itemData.name)
-    } else if(item.status === "pending"){
-      img.setAttribute('src', '../img/history/clock.svg');
-      status.textContent = "pending";
-    } else {
-      img.setAttribute('src', '../img/history/gift.svg');
-      status.textContent = "Claim now";
-    }
-
-    if(item.status === "ready") {
+    if(item.status === "ready" && item.type === "inviter") {
       const a = document.createElement('a');
-      a.href = "#openAGift";
+      a.href = "/en/cabinet#openAGift";
       a.textContent = 'linkToGift';
       li.append(a);
-    } else if(item.status === "pending" && item.type === "refferal") {
+      title.textContent= "Your referral reward";
+      img.setAttribute('src', '../img/history/gift.svg');
+      status.textContent = "Claim now";
+
+    } else if(item.status === "ready" && item.type === "referral") {
+      const a = document.createElement('a');
+      a.href = "/en/cabinet#openAGift";
+      a.textContent = 'linkToGift';
+      li.append(a);
+      title.textContent= "Welcome gift";
+      img.setAttribute('src', '../img/history/gift.svg');
+      status.textContent = "Claim now";
+
+    } else if(item.status === "pending" && item.type === "referral") {
       li.setAttribute('data-modal', "welcome");
+      img.setAttribute('src', '../img/history/clock.svg');
+      status.textContent = "pending";
+      title.textContent= "Welcome gift";
+
     } else if(item.status === "pending" && item.type === "inviter") {
       li.setAttribute('data-modal', "reward");
+      img.setAttribute('src', '../img/history/clock.svg');
+      status.textContent = "pending";
+      title.textContent= "Your referral reward";
+
     } else {
-      li.setAttribute('data-modal', itemData.item_id)
+      setName(title, itemData);
+      li.setAttribute('data-modal', itemData.item_id);
+      status.textContent = setDataTime(item.created);
+      createImgPrize(img, itemData.item_id, itemData.name);
     }
 
     content.append(title);

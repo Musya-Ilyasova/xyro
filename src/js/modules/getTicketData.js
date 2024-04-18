@@ -9,10 +9,13 @@ const getTicketData = (itemData) => {
     usdt: 'We\'ll contact you on Discord for prize distribution',
     points: 'We\'ll contact you on Discord for prize distribution'
   }
+
   const img = document.querySelector(".ticket-img__current");
   const list = document.querySelector(".playstation-list__wrapper");
   const text = document.querySelector('.ticket__text');
-  const title = document.querySelector('.ticket__title')
+  const title = document.querySelector('.ticket__title');
+  const btn = document.querySelector('.ticket__btn');
+  const btnUrl = btn.href;
 
   if(itemData.shard_number) {
     list.style.display = "flex";
@@ -20,20 +23,29 @@ const getTicketData = (itemData) => {
     text.style.display='none';
   }
   img.setAttribute('alt', name);
+  title.textContent = name;
   if(id === 'ps5') {
     img.setAttribute('src', '../img/tickets/ps5.png');
   } else if(id === 'legendaryNFT') {
     img.setAttribute('src', '../img/tickets/nftLegend.png');
     text.textContent = descrbTickets.nft;
+    btn.textContent = "How to mint?";
+    btn.setAttribute('href', `${btnUrl}#nft`);
   } else if(id === 'epicNFT') {
     img.setAttribute('src', '../img/tickets/nftEpic.png');
     text.textContent = descrbTickets.nft;
+    btn.textContent = "How to mint?";
+    btn.setAttribute('href', `${btnUrl}#nft`);
   } else if(id === 'rareNFT') {
     img.setAttribute('src', '../img/tickets/nftRare.png');
     text.textContent = descrbTickets.nft;
+    btn.textContent = "How to mint?";
+    btn.setAttribute('href', `${btnUrl}#nft`);
   } else if(id === 'commonNFT') {
     img.setAttribute('src', '../img/tickets/nftCommon.png');
     text.textContent = descrbTickets.nft;
+    btn.textContent = "How to mint?";
+    btn.setAttribute('href', `${btnUrl}#nft`);
   } else if(id === 'points') {
     img.setAttribute('src', '../img/tickets/extra.png');
     text.textContent = descrbTickets.points;

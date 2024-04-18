@@ -14,7 +14,6 @@ import ticketPage from './pages/ticket';
 import historyPage from './pages/history';
 
 
-
 // window.defaultCode = "FM1"
 window.campaignID = "661eb6910a3a513613b9ce1b"
 window.apiUrl = "https://staging.grokth.com/api/"
@@ -48,4 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
       timer('#mainTimer');
     }
   }
+
 })
