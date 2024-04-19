@@ -1,9 +1,6 @@
 .footer {
   text-align: center;
-  padding: 16px 0 197px;
-  @include mq('768') {
-    padding: 16px 0 150px;
-  }
+  padding: 16px 0 16px;
   &__link {
     color: $text;
     &:hover {

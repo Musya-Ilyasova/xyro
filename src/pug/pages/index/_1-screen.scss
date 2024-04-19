@@ -1,3 +1,12 @@
+.index {
+  .footer {
+    padding: 16px 0 197px;
+    @include mq('768') {
+      padding: 16px 0 150px;
+    }
+  }
+}
+
 .first-sc {
   background: url(../img/bg2x.webp) no-repeat;
   background-position: top center;
@@ -57,3 +66,5 @@
 
 
 }
+
+

@@ -23,5 +23,11 @@
       max-width: 773px;
     }
   }
+  .footer {
+    padding-bottom: 16px;
+    @include mq('768') {
+      padding-bottom: 16px;
+    }
+  }
 
 }
