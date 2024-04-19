@@ -5,6 +5,12 @@
       padding: 16px 0 150px;
     }
   }
+  .cookies {
+    bottom: 142px;
+    @include mq('1024') {
+      bottom: 30px;
+    }
+  }
 }
 
 .first-sc {
