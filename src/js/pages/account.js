@@ -81,7 +81,7 @@ function setParticipantData(p, token) {
     }
 
     if(p.fullfiled_conditions) {
-        // document.querySelector('.connect').style.display = 'none';
+        document.querySelector('.connect').style.display = 'none';
     }
 
     if(p.rewards_shards) {
