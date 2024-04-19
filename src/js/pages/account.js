@@ -66,7 +66,7 @@ function eventScrollToNftFaq() {
 
 function setParticipantData(p, token) {
     document.querySelector('.dc .connect-list-item__status').textContent = p.auth_data.name;
-    document.querySelector('.tg .connect-list-btn').setAttribute('href', `https://t.me/GrokthXyroStageBot?start=${p.id}`);
+    document.querySelector('.tg .connect-list-btn').setAttribute('href', `${window.telegram}?start=${p.id}`);
 
     if(p.socials) {
         const twObj = p.socials.filter(item => {

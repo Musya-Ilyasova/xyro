@@ -15,10 +15,19 @@ import historyPage from './pages/history';
 import indexPage from "./pages/index";
 
 
-window.defaultCode = "XYRO1"
-window.campaignID = "661eb6910a3a513613b9ce1b"
-window.apiUrl = "https://staging.grokth.com/api/"
-window.discordLink = "https://discord.com/oauth2/authorize?client_id=1228003487066099845&response_type=code&redirect_uri=https%3A%2F%2Fstaging.grokth.com%2Fen%2Fwallet&scope=identify"
+// window.defaultCode = "XYRO1"
+// window.campaignID = "661eb6910a3a513613b9ce1b"
+// window.apiUrl = "https://staging.grokth.com/api/"
+// window.discordLink = "https://discord.com/oauth2/authorize?client_id=1228003487066099845&response_type=code&redirect_uri=https%3A%2F%2Fstaging.grokth.com%2Fen%2Fwallet&scope=identify"
+// window.telegram = "https://t.me/GrokthXyroStageBot"
+
+
+// prod links
+window.defaultCode = "XYRO1";
+window.campaignID = "662290db1a0c35b2d0c934de";
+window.apiUrl = "https://invite.xyro.io/en/";
+window.discordLink = "https://discord.com/oauth2/authorize?client_id=1230187300550479922&response_type=code&redirect_uri=https%3A%2F%2Finvite.xyro.io%2Fen%2Fwallet&scope=identify";
+window.telegram = "https://t.me/xyro_invite_bot";
 
 
 document.addEventListener('DOMContentLoaded', () => {
