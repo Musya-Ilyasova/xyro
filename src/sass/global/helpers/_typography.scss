@@ -1,10 +1,13 @@
 h1, h2 {
-  font-size: $font-size-h1;
   line-height: 1.1;
   letter-spacing: -1.6px;
   font-weight: 700;
   font-family: $font-family-main;
   color: $title;
+}
+
+h1 {
+  font-size: $font-size-h1;
   @include mq('768') {
     font-size: 64px;
   }
@@ -14,6 +17,7 @@ h1, h2 {
 }
 
 h2 {
+  font-size: 32px;
   @include mq('768') {
     font-size: 48px;
   }

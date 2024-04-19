@@ -68,8 +68,20 @@ function setParticipantData(p, token) {
     document.querySelector('.dc .connect-list-item__status').textContent = p.auth_data.name;
     document.querySelector('.tg .connect-list-btn').setAttribute('href', `https://t.me/GrokthXyroStageBot?start=${p.id}`);
 
+    if(p.socials) {
+        const twObj = p.socials.filter(item => {
+            return item.type === "twitter";
+        })
+        if(twObj.length>0) {
+            document.querySelector('.tw .connect-list-btn').classList.remove('twConnect');
+            document.querySelector('.tw .connect-list-btn').textContent = "Follow";
+            document.querySelector('.tw .connect-list-btn').href = "https://x.com/xyro_io";
+            document.querySelector('.tw .connect-list-item__status').textContent = twObj[0].username;
+        }
+    }
+
     if(p.fullfiled_conditions) {
-        document.querySelector('.connect').style.display = 'none';
+        // document.querySelector('.connect').style.display = 'none';
     }
 
     if(p.rewards_shards) {

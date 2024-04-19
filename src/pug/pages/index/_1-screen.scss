@@ -14,12 +14,12 @@
 }
 
 .first-sc {
-  background: url(../img/bg2x.webp) no-repeat;
-  background-position: top center;
-  background-size: auto 400px;
+  background: url(../img/bg.webp) no-repeat;
+  background-position: top -30px center;
+  background-size: auto 450px;
   padding: 56px 0 60px;
   text-align: center;
-  min-height: 494px;
+  min-height: 507px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -27,11 +27,13 @@
   margin-top: -60px;
   @include mq('768') {
     min-height: 654px;
-    background-image: url(../img/bg-desktop.webp);
+    background-image: url(../img/bg2x.webp);
+    background-position: top center;
     background-size: auto 556px;
     padding: 56px 0 60px;
   }
   @include mq('1024') {
+    background-image: url(../img/bg-desktop.webp);
     padding: 56px 0 80px;
     min-height: 670px;
   }

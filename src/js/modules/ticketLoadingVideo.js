@@ -1,5 +1,4 @@
 const ticketLoadingVideo = (isError) => {
-  isError = false;
   const loading = document.querySelector('.ticket-loading'),
         afterContent = document.querySelector('.ticket__container'),
         afterError = document.querySelector('.ticket__container_error'),
