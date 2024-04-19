@@ -34,6 +34,7 @@ export default function accountPage() {
         console.error("failed to get participant", res);
     });
     setTicketsData(token);
+    setTotalReadyTickets(token)
     twitterConnect(token);
     eventScrollToNftFaq();
     document.querySelector('.btn_logout').addEventListener('click', () => {
@@ -126,9 +127,13 @@ function setParticipantTwitterData(searchUrl, token) {
     });
 }
 
-function getTicketsData(token, limit, callback) {
+function getTicketsData(token, limit, callback, status = 0) {
     const ticketsUrl = new URL(window.apiUrl+ "v1/tickets");
     ticketsUrl.searchParams.set("limit", limit);
+
+    if(status) {
+        ticketsUrl.searchParams.set("status", status);
+    }
 
     fetch(ticketsUrl, {
       method: "GET",
@@ -150,18 +155,23 @@ function getTicketsData(token, limit, callback) {
     });
 }
 
-function setTicketsData(token) {
+function setTotalReadyTickets (token) {
     getTicketsData(token, 100, (d) => {
-        const readyTickets = d.items.filter(item => item.status === "ready");
         const btn = document.querySelector(".getticket");
-        if(readyTickets.length>0) {
-            document.querySelector(".hero-prizes__count").textContent = readyTickets.length;
+        if(d.total>0) {
+            document.querySelector(".hero-prizes__count").textContent = d.total;
             document.querySelector('.hero').classList.add('hero_light');
             let params = new URLSearchParams();
             params.append("id", d.items[0].id);
             btn.setAttribute("href", `${btn.getAttribute("href")}?${params.toString()}`);
             btn.classList.remove("btn_disabled");
         }
+    }, 'ready')
+
+}
+
+function setTicketsData(token) {
+    getTicketsData(token, 100, (d) => {
         const items = d.items.slice(0, 3);
         if(items.length>=3) {
             document.querySelector('.history-list').classList.add('history-list_gradient')
