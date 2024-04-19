@@ -64,9 +64,14 @@ function eventScrollToNftFaq() {
     });
 }
 
-function setParticipantData(p, token) {
+function setParticipantData(p) {
     document.querySelector('.dc .connect-list-item__status').textContent = p.auth_data.name;
     document.querySelector('.tg .connect-list-btn').setAttribute('href', `https://t.me/GrokthXyroStageBot?start=${p.id}`);
+
+    if(p.fullfiled_conditions) {
+        document.querySelector('.connect').style.display = 'none';
+    }
+
     if(p.rewards_shards) {
         const list = document.querySelector('.playstation-list__wrapper');
         checkRewardsShards(list, p.rewards_shards[0].current);
@@ -105,13 +110,11 @@ function setParticipantTwitterData(searchUrl) {
             'Accept': 'application/json',
         },
         body: JSON.stringify({
-            auth: {
-                type:"twitter",
-                data: {
-                    token:  oauthToken,
-                    verifier: oauthVerifier
-                },
-            }
+            type:"twitter",
+            data: {
+                token:  oauthToken,
+                verifier: oauthVerifier
+            },
         }),
         method: "POST",
     }).then(res => {
