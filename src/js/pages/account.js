@@ -81,7 +81,7 @@ function setParticipantData(p, token) {
 
     const searchUrl = new URL(window.location).searchParams;
     if(searchUrl.has('oauth_token') && searchUrl.has('oauth_verifier')) {
-        setParticipantTwitterData(searchUrl, token);
+        setParticipantTwitterData(searchUrl);
     }
 
     // set soc links
@@ -95,7 +95,7 @@ function setParticipantData(p, token) {
     })
 }
 
-function setParticipantTwitterData(searchUrl, token) {
+function setParticipantTwitterData(searchUrl) {
     const oauthToken = searchUrl.get('oauth_token');
     const oauthVerifier = searchUrl.get('oauth_verifier');
 
@@ -103,10 +103,8 @@ function setParticipantTwitterData(searchUrl, token) {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
-            campaign_id: window.campaignID,
             auth: {
                 type:"twitter",
                 data: {
