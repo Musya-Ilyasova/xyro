@@ -1,5 +1,8 @@
 .history {
-  padding: 48px 0 12px;
+  padding: 48px 0;
+  @include mq('768') {
+    padding: 48px 0 12px;
+  }
   &__title {
     display: flex;
     align-items: center;
