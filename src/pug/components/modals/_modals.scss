@@ -2,19 +2,23 @@
   width: 328px;
   height: auto;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 16px;
   left: 0;
   right: 0;
   margin: 0 auto;
   padding: 12px 12px 20px;
-  background: $bg2;
+  background: $gray2;
   border-radius: 12px;
+  @include mq('768') {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   &__overlay {
     position: fixed;
     bottom: 0;
     left: 0;
-    background: rgba($color: $black, $alpha: 0.5);
+    background: rgba($color: $dark, $alpha: 0.8);
     opacity: 0;
     overflow: hidden;
     width: 0;
@@ -36,6 +40,7 @@
   }
   &__text {
     font-size: 16px;
+    line-height: 24px;
   }
   &__ticketId {
     font-weight: 500;
@@ -44,6 +49,7 @@
     text-transform: uppercase;
     display: block;
     margin-top: 12px;
+    color: rgba($color: $text, $alpha: 0.32)
   }
 
   &__close {
@@ -70,4 +76,7 @@
 
 .modal-btn {
   margin-top: 32px;
+  font-weight: 600;
+  height: 44px;
+  line-height: 44px;
 }
