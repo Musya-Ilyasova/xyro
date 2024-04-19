@@ -50,7 +50,7 @@ const getTicketData = (itemData) => {
     img.setAttribute('src', '../img/tickets/extra.png');
     text.textContent = descrbTickets.points;
     title.textContent = `${itemData.amount} Extra Points`
-  } else if(id === 'usdt') {
+  } else if(id.includes('usdt')) {
     img.setAttribute('src', '../img/tickets/usdt.png');
     text.textContent = descrbTickets.usdt;
     title.textContent = `${+itemData.amount / 100} USDT`

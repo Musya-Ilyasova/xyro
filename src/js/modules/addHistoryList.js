@@ -16,7 +16,7 @@ const setDataTime = (date) => {
 }
 
 export const setName = (title, itemData) => {
-  if(itemData.item_id==="usdt") {
+  if(itemData.item_id.includes('usdt')) {
     let amount = +itemData.amount / 100;
     title.textContent = `${amount} USDT`
   } else if(itemData.item_id==="points") {
@@ -41,7 +41,7 @@ const createImgPrize = (img, id, name) => {
     img.setAttribute('src', '../img/history/nftCommon.svg');
   } else if(id === 'points') {
     img.setAttribute('src', '../img/history/extra.svg');
-  } else if(id === 'usdt' ) {
+  } else if(id.includes('usdt')) {
     img.setAttribute('src', '../img/history/usdt.svg');
   }
   return img
