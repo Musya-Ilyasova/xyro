@@ -23,7 +23,7 @@ export default function accountPage() {
                 if (!response.data.fullfiled_conditions) {
                     // window.location.href = "../en/verify";
                 }
-                setParticipantData(response.data)
+                setParticipantData(response.data, token)
             }));
         } else if (res.status == 401 || res.status == 404) {
             logout();
@@ -63,7 +63,7 @@ function eventScrollToNftFaq() {
     });
 }
 
-function setParticipantData(p) {
+function setParticipantData(p, token) {
     document.querySelector('.dc .connect-list-item__status').textContent = p.auth_data.name;
     document.querySelector('.tg .connect-list-btn').setAttribute('href', `https://t.me/GrokthXyroStageBot?start=${p.id}`);
     if(p.rewards_shards) {
@@ -80,7 +80,7 @@ function setParticipantData(p) {
 
     const searchUrl = new URL(window.location).searchParams;
     if(searchUrl.has('oauth_token') && searchUrl.has('oauth_verifier')) {
-        setParticipantTwitterData(searchUrl);
+        setParticipantTwitterData(searchUrl, token);
     }
 
     // set soc links
@@ -94,7 +94,7 @@ function setParticipantData(p) {
     })
 }
 
-function setParticipantTwitterData(searchUrl) {
+function setParticipantTwitterData(searchUrl, token) {
     const oauthToken = searchUrl.get('oauth_token');
     const oauthVerifier = searchUrl.get('oauth_verifier');
 
@@ -102,6 +102,7 @@ function setParticipantTwitterData(searchUrl) {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
             campaign_id: window.campaignID,
