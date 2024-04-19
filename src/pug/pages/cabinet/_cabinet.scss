@@ -9,16 +9,19 @@
 
   .faq__title {
     text-align: left;
+    padding-left: 8px;
     @include mq('768') {
       font-size: 44px;
+      padding-left: 0;
     }
   }
 
   .faq__container {
-    max-width: 692px;
     margin: 0 8px;
+    padding: 0;
     width: calc(100% - 16px);
     @include mq('768') {
+      max-width: 692px;
       width: 100%;
       margin: 0 auto;
       background: $bg2;
@@ -28,8 +31,10 @@
   }
   .faq-list {
     max-width: 100%;
+    margin-bottom: 48px;
     @include mq('768') {
       margin-top: 24px;
+      margin-bottom: 32px;
     }
   }
   .support {
@@ -42,6 +47,7 @@
     }
   }
   .faq-item__title {
+    padding: 16px 8px;
     @include mq('768') {
       padding: 16px 20px;
     }

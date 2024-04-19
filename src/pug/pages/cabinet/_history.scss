@@ -6,6 +6,10 @@
   &__title {
     display: flex;
     align-items: center;
+    padding-left: 8px;
+    @include mq('768') {
+      padding-left: 0px;
+    }
     .arrow {
       display: inline-flex;
       width: 40px;
@@ -35,6 +39,7 @@
     }
   }
   &__container {
+    padding: 0;
     @include mq('768') {
       background: $bg2;
       border-radius: 12px;
