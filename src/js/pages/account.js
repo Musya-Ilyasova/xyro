@@ -75,13 +75,14 @@ function setParticipantData(p, token) {
         if(twObj.length>0) {
             document.querySelector('.tw .connect-list-btn').classList.remove('twConnect');
             document.querySelector('.tw .connect-list-btn').textContent = "Follow";
+            document.querySelector('.tw .connect-list-btn').setAttribute("target", "_blank");
             document.querySelector('.tw .connect-list-btn').href = "https://x.com/xyro_io";
             document.querySelector('.tw .connect-list-item__status').textContent = twObj[0].username;
         }
     }
 
     if(p.fullfiled_conditions) {
-        document.querySelector('.connect').style.display = 'none';
+        // document.querySelector('.connect').style.display = 'none';
     }
 
     if(p.rewards_shards) {
