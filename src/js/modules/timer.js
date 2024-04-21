@@ -1,6 +1,6 @@
 //Timer
 const timer = (selectorTimer) => {
-  const deadline = '2024-05-1 00:00';
+  const deadline = '2024/05/1 00:00';
   function getTimeRemaining(endtime) {
     let days, hours, minutes, seconds;
     const t = Date.parse(endtime) - Date.parse(new Date());
