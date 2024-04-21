@@ -3,4 +3,3 @@
 /.temporary_cache
 .vercel
 .env
-/src/js/modules/env.js
