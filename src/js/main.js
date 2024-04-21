@@ -6,6 +6,7 @@ import timer from "./modules/timer";
 import addSlider from "./modules/prizesSlider";
 import copyClipboard from "./modules/copyClipboard";
 import toggleHistoryList from "./modules/modals";
+import * as global from "./modules/env";
 
 import verifyPage from "./pages/verify";
 import authPage from "./pages/auth";
@@ -13,13 +14,6 @@ import accountPage from "./pages/account";
 import ticketPage from './pages/ticket';
 import historyPage from './pages/history';
 import indexPage from "./pages/index";
-
-// prod links
-window.defaultCode = "XYRO1";
-window.campaignID = "662290db1a0c35b2d0c934de";
-window.apiUrl = "https://invite.xyro.io/api/";
-window.discordLink = "https://discord.com/oauth2/authorize?client_id=1230187300550479922&response_type=code&redirect_uri=https%3A%2F%2Finvite.xyro.io%2Fen%2Fwallet&scope=identify";
-window.telegram = "https://t.me/xyro_invite_bot";
 
 
 document.addEventListener('DOMContentLoaded', () => {
