@@ -6,6 +6,7 @@ import timer from "./modules/timer";
 import addSlider from "./modules/prizesSlider";
 import copyClipboard from "./modules/copyClipboard";
 import toggleHistoryList from "./modules/modals";
+import addConfetti from "./modules/addConfetti";
 import * as global from "./modules/env";
 
 import verifyPage from "./pages/verify";
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addSlider();
     copyClipboard();
     toggleHistoryList();
+    addConfetti();
   } else if(document.body.classList.contains('ticket-page')) {
     ticketPage();
   } else if(document.body.classList.contains('history-page')) {
@@ -41,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollToTheSection();
     indexPage();
     if(!document.body.classList.contains('winddown')) {
-      timer('#mainTimer');
+      timer('#mainTimer', '2024/05/1 00:00');
     }
   }
 })

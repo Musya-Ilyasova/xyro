@@ -61,6 +61,7 @@
     "webpack-stream": "^7.0.0"
   },
   "dependencies": {
+    "canvas-confetti": "^1.9.2",
     "dotenv": "^16.1.4",
     "keen-slider": "^6.8.6",
     "svg4everybody": "^2.1.9",
