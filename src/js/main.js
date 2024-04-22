@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     addSlider();
     copyClipboard();
     toggleHistoryList();
-    addConfetti();
   } else if(document.body.classList.contains('ticket-page')) {
     ticketPage();
   } else if(document.body.classList.contains('history-page')) {
