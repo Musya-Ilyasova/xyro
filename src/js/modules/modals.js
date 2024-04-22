@@ -35,7 +35,7 @@ const addModalContent = (title, content, id) => {
   if(title.includes('NFT')) {
     modalTitle.textContent = content['nft'].title;
     modalText.textContent = content['nft'].descrb;
-    modalBtn.href = "/en/cabinet#nft";
+    modalBtn.href = "/eng/cabinet#nft";
   } else {
     modalTitle.textContent = content[title].title;
     modalText.textContent = content[title].descrb;

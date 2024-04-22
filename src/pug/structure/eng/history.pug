@@ -1,0 +1,14 @@
+include ../../mixins/mixins
+doctype html
+html(lang="en")
+  include ../../components/global/eng/head
+  body.history-page
+    include ../../components/global/eng/body-gtm-noscript
+    include ../../components/global/eng/header-half
+    //main
+    main.main
+      include ../../pages/history/eng/history
+    include ../../components/global/eng/cookies
+    include ../../components/global/eng/footer-cabinet
+    include ../../components/modals/eng/modal
+    include ../../components/global/scripts

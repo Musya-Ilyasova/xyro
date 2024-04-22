@@ -3,7 +3,7 @@ import logout from "../modules/logout";
 export default function verifyPage () {
     const token = window.localStorage.getItem("grokth_token")
     if (!token) {
-        window.location.href = "../en"
+        window.location.href = "../eng"
     }
 
     fetch(window.apiUrl+"v1/participant", {
@@ -18,7 +18,7 @@ export default function verifyPage () {
             res.json().then((response => {
                 let p = response.data
                 if (p.fullfiled_conditions) {
-                    window.location.href = "../en/cabinet";
+                    window.location.href = "../eng/cabinet";
                 }
             }));
         } else if (res.status == 401 || res.status == 404) {
@@ -41,7 +41,7 @@ export default function verifyPage () {
             method: "POST",
         }).then(res => {
             if (res.status === 200) {
-                window.location.href = "../en/cabinet";
+                window.location.href = "../eng/cabinet";
             } else {
                 document.querySelector(".verify a.btn_primary").classList.add("error")
             }

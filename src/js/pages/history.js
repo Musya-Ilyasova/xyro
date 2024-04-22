@@ -4,7 +4,7 @@ import logout from "../modules/logout";
 export default function accountPage() {
     const token = window.localStorage.getItem("grokth_token")
     if (!token) {
-        window.location.href = "../en"
+        window.location.href = "../eng"
     }
     // get participant
     fetch(window.apiUrl+"v1/participant", {

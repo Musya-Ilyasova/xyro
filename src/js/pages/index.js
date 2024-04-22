@@ -1,7 +1,7 @@
 export default function indexPage() {
     // redirect to account if authorized
     if (window.localStorage.getItem("grokth_token")) {
-        window.location.href = "../en/cabinet";
+        window.location.href = "../eng/cabinet";
     }
 
     const url = new URL(window.location);

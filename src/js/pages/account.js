@@ -7,7 +7,7 @@ import twitterConnect from "../modules/twitterConnect";
 export default function accountPage() {
     const token = window.localStorage.getItem("grokth_token")
     if (!token) {
-        window.location.href = "../en"
+        window.location.href = "../eng"
     }
     // get participant
     fetch(window.apiUrl+"v1/participant", {
@@ -21,7 +21,7 @@ export default function accountPage() {
         if (res.status === 200) {
             res.json().then((response => {
                 if (!response.data.fullfiled_conditions) {
-                    // window.location.href = "../en/verify";
+                    // window.location.href = "../eng/verify";
                 }
                 setParticipantData(response.data, token)
             }));
@@ -91,7 +91,7 @@ function setParticipantData(p, token) {
     }
     // set refLink
     const refUrl = new URL(window.location);
-    let path = `${refUrl.host}/en?r=${p.ref_code}`
+    let path = `${refUrl.host}/eng?r=${p.ref_code}`
     Array.prototype.forEach.call( document.getElementsByClassName("copyInput"), (e) => {
         e.innerHTML = path.replace('https://', '').replace('http://', '');
         e.dataset.text = path;
@@ -133,7 +133,7 @@ function setParticipantTwitterData(searchUrl, token) {
         method: "POST",
     }).then(res => {
         if (res.status === 200) {
-            window.location.href = "../en/cabinet";
+            window.location.href = "../eng/cabinet";
         } else {
             console.error("failed to create participant", res.status);
         }

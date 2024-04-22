@@ -11,7 +11,7 @@ export default function ticketPage() {
     const ticketID = url.searchParams.get("id");
 
     if (!ticketID) {
-        window.location.href = "../en/cabinet"
+        window.location.href = "../eng/cabinet"
     }
     let isError, player = document.querySelector('#player');
     fetch(window.apiUrl+`v1/tickets/${ticketID}/collect`, {

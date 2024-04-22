@@ -1,0 +1,18 @@
+include ../../mixins/mixins
+doctype html
+html(lang="en")
+  include ../../components/global/eng/head
+  body.index
+    include ../../components/global/eng/body-gtm-noscript
+    include ../../components/global/eng/header
+    //main
+    main.main
+      include ../../pages/index/eng/1-screen
+      include ../../pages/index/eng/prizes
+      include ../../pages/index/eng/about
+      include ../../pages/index/eng/steps
+      include ../../pages/index/eng/faq
+    include ../../components/global/eng/bottom-timer
+    include ../../components/global/eng/cookies
+    include ../../components/global/eng/footer
+    include ../../components/global/scripts

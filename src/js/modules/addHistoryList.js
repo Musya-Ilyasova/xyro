@@ -66,7 +66,7 @@ const addHistoryList = (data) => {
 
     if(item.status === "ready" && item.type === "inviter") {
       const a = document.createElement('a');
-      a.href = "/en/cabinet#openAGift";
+      a.href = "/eng/cabinet#openAGift";
       a.textContent = 'linkToGift';
       li.append(a);
       title.textContent= "Your referral reward";
@@ -75,7 +75,7 @@ const addHistoryList = (data) => {
 
     } else if(item.status === "ready" && item.type === "referral") {
       const a = document.createElement('a');
-      a.href = "/en/cabinet#openAGift";
+      a.href = "/eng/cabinet#openAGift";
       a.textContent = 'linkToGift';
       li.append(a);
       title.textContent= "Welcome gift";

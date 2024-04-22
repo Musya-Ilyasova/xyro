@@ -1,7 +1,7 @@
 export default function authPage () {
     // redirect to account if authorized
     if (window.localStorage.getItem("grokth_token")) {
-        window.location.href = "../en/cabinet";
+        window.location.href = "../eng/cabinet";
     }
 
     const url = new URL(window.location);
@@ -9,7 +9,7 @@ export default function authPage () {
     const refCode = url.searchParams.get("state");
     // redirect to index if missing data
     if (!authCode || !refCode) {
-        window.location.href = "../en";
+        window.location.href = "../eng";
     }
 
     // resolve auth
@@ -87,10 +87,10 @@ export default function authPage () {
                     window.localStorage.setItem("grokth_token", response.data.token)
                     window.localStorage.setItem("grokth_name", p.auth_data.name)
                     if (res.status === 201) {
-                        window.location.href = "../en/verify";
+                        window.location.href = "../eng/verify";
                         return;
                     }
-                    window.location.href = "../en/cabinet";
+                    window.location.href = "../eng/cabinet";
                 }));
             } else {
                 document.getElementById("wallet").classList.add("error");
