@@ -26,7 +26,7 @@ const modalsContent = {
 }
 
 
-const addModalContent = (title, content, id) => {
+const addModalContent = (title, content, id=0) => {
   const modal = document.querySelector('.modal'),
   modalTitle = modal.querySelector('.modal__title'),
   modalText = modal.querySelector('.modal__text'),
@@ -41,20 +41,21 @@ const addModalContent = (title, content, id) => {
     modalText.textContent = content[title].descrb;
     modalBtn.href = "";
   }
+  modalId.style.display = "";
   modalId.textContent = `id ${id}`;
 }
 
-const showModal = (modal) => {
+export const showModal = (modal) => {
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
-const toggleCloseModal = (modal) => {
+export const toggleCloseModal = (modal) => {
   modal.classList.remove('open');
   document.body.style.overflow = '';
 }
 
-const closeModal = (modal) => {
+export const closeModal = (modal) => {
   modal.addEventListener('click', (e) => {
     let target = e.target;
     if(target.classList.contains('modal__close') || target.classList.contains('btn_grey')|| target.classList.contains('modal__overlay')) {

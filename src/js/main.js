@@ -6,7 +6,7 @@ import timer from "./modules/timer";
 import addSlider from "./modules/prizesSlider";
 import copyClipboard from "./modules/copyClipboard";
 import toggleHistoryList from "./modules/modals";
-import addConfetti from "./modules/addConfetti";
+import { showX3Modal } from "./modules/x3Event";
 import * as global from "./modules/env";
 
 import verifyPage from "./pages/verify";
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else if(document.body.classList.contains('cabinet-page')) {
     accountPage();
     addSlider();
+    // showX3Modal();
     copyClipboard();
     toggleHistoryList();
   } else if(document.body.classList.contains('ticket-page')) {

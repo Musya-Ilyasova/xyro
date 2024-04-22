@@ -37,6 +37,7 @@
     font-weight: 700;
     letter-spacing: -0.44px;
     line-height: 1.1;
+    padding-right: 30px;
   }
   &__text {
     font-size: 16px;
@@ -87,11 +88,14 @@ div {
     text-align: center;
     padding-left: 0;
     padding-right: 0;
+    padding-top: 0;
     @include mq('768') {
       width: 488px;
     }
     &__close {
       right: 0px;
+      z-index: 2;
+      top: 3px;
     }
     &__title {
       font-size: 36px;
@@ -132,7 +136,7 @@ div {
         margin: 0 auto;
         @include mq('768') {
           width: 390px;
-          top: -27px;
+          top: -15px;
         }
       }
       &__gift {
@@ -175,5 +179,4 @@ div {
       }
     }
   }
-
 }

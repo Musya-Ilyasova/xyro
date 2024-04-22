@@ -1,0 +1,21 @@
+.x3-banner
+  .x3-banner__container
+    img.x3-gift(src="../img/x3-banner-gift.svg", alt="x3 gift")
+    .x3-banner__body
+      .x3-banner__title
+        span.rewards 0
+        | &nbsp;prizes for each friend referred
+      .timer__wrapper.x3-banner__timer
+        .timer#bannerTimer
+          span.days
+            +icon('t-left')
+            .count 09
+          span.hours
+            +icon('t-middle')
+            .count 18
+          span.min
+            +icon('t-right')
+            .count 47
+    +icon('chevron')
+
+

@@ -1,18 +1,19 @@
-.x3-modal__overlay.open
+.x3-modal__overlay.modal__overlay
   .canvas
   .x3-modal
     .x3-modal__container
-      button.x3-modal__close Close
+      button.x3-modal__close.modal__close Close
         +icon('close')
       .x3-modal-img
         img.x3-modal-img__back(src="../img/ticket-img__back.svg", alt="X3 GIFT")
-        img.x3-modal-img__gift(src="../img/x3-gift.png", alt="X3 GIFT")
+        img.x3-modal-img__gift(src="../img/x3-gift.webp", alt="X3 GIFT")
       h3.x3-modal__title
         span.main Bonus!&nbsp;
-        | {rewards} prizes instead of 1 for each friend!
+        span.rewards 0
+        | &nbsp;prizes instead of 1 for each friend!
       p.x3-modal__text Temporary bonus, hurry up!
       .timer__wrapper.x3-modal__timer
-        .timer#mainTimer
+        .timer#modalTimer
           span.days
             +icon('t-left')
             .count 09
