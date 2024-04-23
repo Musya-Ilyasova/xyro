@@ -39,12 +39,12 @@ const x3Banner = (rewards, deadline) => {
 
 
 export const showX3Banner = (data) => {
-  const refData = data.filter(item => item.id === "ref_x");
-  if(refData.length > 0) {
-    const date = refData[0].end * 1000;
+  const invData = data.filter(item => item.id === "inv_x");
+  if(invData.length > 0) {
+    const date = invData[0].end * 1000;
     const d = new Date();
     if(Date.parse(d) < date) {
-      x3Banner(refData[0].referral_multiplier_value, new Date(date))
+      x3Banner(invData[0].invite_multiplier_value, new Date(date))
     }
   }
 }
