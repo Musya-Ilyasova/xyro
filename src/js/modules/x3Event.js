@@ -13,7 +13,7 @@ const x3Banner = (rewards, deadline) => {
   timer("#bannerTimer", deadline);
   banner.addEventListener('click', () => {
     modalTitle.textContent = `${rewards} prizes for referring a friend`;
-    modalText.textContent = `Get ${rewards} prizes for every friend you invite instead of just 1. Your friend  needs to meet the newcomer conditions for the prize to be valid. Act fast, this bonus is only available for 24 hours!`;
+    modalText.textContent = `Get ${rewards} prizes for every friend you invite instead of just 1. Your friend  needs to meet the newcomer conditions for the prize to be valid.`;
     modalId.style.display = "none";
     showModal(modal);
     closeModal(modal);
