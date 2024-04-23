@@ -1,5 +1,5 @@
 .x3-banner {
-  margin: 60px 8px 24px;
+  margin: 24px 8px 12px;
   max-width: 688px;
   border-radius: 12px;
   background: url(../img/x3-banner-back.webp) no-repeat;
@@ -33,12 +33,12 @@
   }
 
   @include mq('768') {
-    margin: 0 auto;
+    margin: 4px auto 12px;
     background-image: url(../img/x3-banner-desktop-back.webp);
     background-position: center right;
   }
-  &_fr {
-    background: url(../img/x3-banner-back-fr.webp) no-repeat;
+  &_inv {
+    background-image: url(../img/x3-banner-back-inv.webp);
     @include mq('768') {
       background-image: url(../img/x3-banner-desktop-back-fr.webp)
     }

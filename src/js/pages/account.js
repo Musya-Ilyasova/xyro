@@ -2,6 +2,7 @@ import addHistoryList from "../modules/addHistoryList"
 import logout from "../modules/logout";
 import checkRewardsShards from "../modules/checkRewardsShards";
 import twitterConnect from "../modules/twitterConnect";
+import { showX3Banner } from "../modules/x3Event"
 
 
 export default function accountPage() {
@@ -83,6 +84,10 @@ function setParticipantData(p, token) {
 
     if(p.fullfiled_conditions) {
         document.querySelector('.connect').style.display = 'none';
+    }
+
+    if(p.promos) {
+        showX3Banner(p.promos);
     }
 
     if(p.rewards_shards) {
