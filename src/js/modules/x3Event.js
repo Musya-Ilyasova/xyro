@@ -39,7 +39,7 @@ const x3Banner = (rewards, deadline) => {
 
 
 export const showX3Banner = (data) => {
-  const invData = data.filter(item => item.id === "inv_x");
+  const invData = data.filter(item => item.type === 'invite_multiplier');
   if(invData.length > 0) {
     const date = invData[0].end * 1000;
     const d = new Date();
