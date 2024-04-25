@@ -37,10 +37,10 @@
     background-image: url(../img/x3-banner-desktop-back.webp);
     background-position: center right;
   }
-  &_inv {
-    background-image: url(../img/x3-banner-back-inv.webp);
+  &_ref {
+    background-image: url(../img/x3-banner-back-ref.webp);
     @include mq('768') {
-      background-image: url(../img/x3-banner-desktop-back-fr.webp)
+      background-image: url(../img/x3-banner-desktop-back-ref.webp)
     }
   }
   &__container {

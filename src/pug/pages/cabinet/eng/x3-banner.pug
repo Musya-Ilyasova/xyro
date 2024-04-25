@@ -1,5 +1,5 @@
 .x3-banners
-  .x3-banner#x3BannerRef
+  .x3-banner#x3BannerInv
     .x3-banner__container
       img.x3-gift(src="../img/x3-banner-gift.svg", alt="x3 gift")
       .x3-banner__body
@@ -7,7 +7,7 @@
           span.rewards 0
           | &nbsp;prizes for each friend referred
         .timer__wrapper.x3-banner__timer
-          .timer#bannerTimer
+          .timer#bannerInvTimer
             span.hours
               +icon('t-left')
               .count 09
@@ -18,5 +18,23 @@
               +icon('t-right')
               .count 47
       +icon('chevron')
-
+  .x3-banner.x3-banner_ref#x3BannerRef
+    .x3-banner__container
+      img.x3-gift(src="../img/x3-banner-gift-ref.svg", alt="x3 gift")
+      .x3-banner__body
+        .x3-banner__title
+          span.rewards 0
+          | &nbsp;prizes for each friend referred
+        .timer__wrapper.x3-banner__timer
+          .timer#bannerRefTimer
+            span.hours
+              +icon('t-left')
+              .count 09
+            span.min
+              +icon('t-middle')
+              .count 18
+            span.sec
+              +icon('t-right')
+              .count 47
+      +icon('chevron')
 

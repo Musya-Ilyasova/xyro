@@ -1,16 +1,18 @@
 //Timer
 const timer = (selectorTimer, deadline) => {
   function getTimeRemaining(endtime) {
-    let days, hours, minutes, seconds;
+    let days, hours, hoursFull, minutes, seconds;
     const t = Date.parse(endtime) - Date.parse(new Date());
     if(t <= 0) {
       days = 0;
       hours = 0;
+      hoursFull = 0;
       minutes = 0;
       seconds = 0;
     } else {
-      days = Math.floor((t / (1000*60*60*24)))
+      days = Math.floor((t / (1000*60*60*24)));
       hours = Math.floor((t / (1000*60*60)) % 24);
+      hoursFull = Math.floor(t / (1000*60*60));
       minutes = Math.floor((t / 1000 / 60) % 60);
       seconds = Math.floor((t / 1000) % 60);
     }
@@ -18,6 +20,7 @@ const timer = (selectorTimer, deadline) => {
       'total': t,
       'days' : days,
       'hours': hours,
+      'hoursFull': hoursFull,
       'minutes': minutes,
       'seconds': seconds
     };
@@ -37,7 +40,6 @@ const timer = (selectorTimer, deadline) => {
           seconds = timer.querySelector('.sec .count'),
           timeInterval = setInterval(updateClock, 1000);
     updateClock();
-
     function updateClock() {
       const t = getTimeRemaining(endtime);
 
@@ -46,7 +48,7 @@ const timer = (selectorTimer, deadline) => {
         hours.textContent = `${getZero(t.hours)}h`;
         minutes.textContent = `${getZero(t.minutes)}m`;
       } else {
-        hours.textContent = getZero(t.hours);
+        hours.textContent = getZero(t.hoursFull);
         minutes.textContent = getZero(t.minutes);
         seconds.textContent = getZero(t.seconds);
       }
