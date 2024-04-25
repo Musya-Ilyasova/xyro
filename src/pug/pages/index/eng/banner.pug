@@ -1,0 +1,21 @@
+.idx-banner
+  .container.idx-banner__container
+    img.idx-banner__img(src="../img/idx-banner-img.png", alt="")
+    .idx-banner__content
+      span.idx-banner__title This link will get you&nbsp;
+        span.rewards 0
+        | &nbsp;gifts instead of 1!
+      p.idx-banner__text Your invitation is special. Hurry up to fulfil the conditions to get the prize.
+    .timer__wrapper
+      .timer#idxBanner
+        span.hours
+          +icon('t-left')
+          .count 09
+        span.min
+          +icon('t-middle')
+          .count 18
+        span.sec
+          +icon('t-right')
+          .count 47
+
+

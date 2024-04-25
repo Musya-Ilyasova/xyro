@@ -1,0 +1,77 @@
+.idx-banner {
+  background: linear-gradient(to right, #349EFF, #9B3BFF, #C845BA, #F95A4D);
+  padding: 12px 0;
+  display: none;
+  @include mq('1280') {
+    padding: 0;
+  }
+  .timer__wrapper {
+    margin: 0 0 0 auto;
+    justify-content: flex-end;
+    .timer{
+      span {
+        width: 36px;
+        height: 36px;
+        @include mq('768') {
+          width: 48px;
+          height: 48px;
+        }
+      }
+      .count {
+        color: $white;
+        line-height: 36px;
+        font-size: 14px;
+        @include mq('768') {
+          line-height: 48px;
+          font-size: 18px;
+        }
+      }
+      .icon {
+        fill: rgba($color: $white, $alpha: 0.24);
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    max-width: 100%;
+    flex-wrap: nowrap;
+  }
+  &__img {
+    display: none;
+    width: 241px;
+    height: 82px;
+    object-fit: contain;
+    margin-right: 20px;
+    @include mq('1280') {
+      display: block;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 2;
+    margin-right: 20px;
+  }
+  &__title {
+    font-weight: 600;
+    color: $white;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 4px;
+    line-height: 18px;
+    letter-spacing: -0.4px;
+    @include mq('768') {
+      font-size: 18px;
+    }
+  }
+  &__text {
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -0.4px;
+    color: $white;
+  }
+
+}
