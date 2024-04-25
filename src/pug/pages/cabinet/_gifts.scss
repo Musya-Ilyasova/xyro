@@ -81,6 +81,7 @@
     border-radius: 12px;
     display: flex;
     flex-direction: column;
+    position: relative;
     &__img {
       margin-top: auto;
       width: 100%;
@@ -95,10 +96,47 @@
       color: $white;
       font-weight: 600;
     }
+    &__descrb {
+      display: none;
+      font-size: 14px;
+      padding: 0 8px 8px;
+      line-height: 18px;
+      letter-spacing: -0.6px;
+      width: 100%;
+      a {
+        letter-spacing: -0.6px;
+        color: $darkBlue2;
+        border: none;
+        text-decoration: underline;
+        display: inline;
+        line-height: 1;
+      }
+    }
     &:first-child {
       .slider-item__img {
         max-width: 196px;
         margin-left: 8px;
+      }
+    }
+    .btn_share {
+      display: none;
+      width: calc(100% - 16px);
+      margin: -8px 8px 8px;
+    }
+    &.full {
+      background: rgba($color: $main, $alpha: 0.12);
+      .slider-item__text {
+        color: $main;
+      }
+      .slider-item__descrb {
+        color: $main;
+        display: block;
+      }
+      .playstation-list__wrapper {
+        display: none;
+      }
+      .btn_share {
+        display: inline-flex;
       }
     }
   }

@@ -3,10 +3,11 @@ import logout from "../modules/logout";
 import checkRewardsShards from "../modules/checkRewardsShards";
 import twitterConnect from "../modules/twitterConnect";
 import { showX3Banner } from "../modules/x3Event"
+import { makeTgUrl } from "../modules/getTicketData";
 
 
 export default function accountPage() {
-    const token = window.localStorage.getItem("grokth_token")
+    const token = window.localStorage.getItem("grokth_token");
     if (!token) {
         window.location.href = "../eng"
     }
@@ -90,17 +91,24 @@ function setParticipantData(p, token) {
         showX3Banner(p.promos);
     }
 
-    if(p.rewards_shards) {
-        const list = document.querySelector('.playstation-list__wrapper');
-        checkRewardsShards(list, p.rewards_shards[0].current);
-    }
     // set refLink
     const refUrl = new URL(window.location);
+    localStorage.setItem('ref_code', p.ref_code);
     let path = `${refUrl.host}/eng?r=${p.ref_code}`
     Array.prototype.forEach.call( document.getElementsByClassName("copyInput"), (e) => {
         e.innerHTML = path.replace('https://', '').replace('http://', '');
         e.dataset.text = path;
     });
+
+    if(p.rewards_shards) {
+        const list = document.querySelector('.playstation-list__wrapper');
+        let isSlider = true;
+        checkRewardsShards(list, p.rewards_shards[0].current, isSlider);
+        if(p.rewards_shards[0].current >= 10) {
+            document.querySelector('.slider-item .btn_share').href = makeTgUrl();
+            document.querySelector('.slider-item .btn_share').setAttribute('target', '_blank');
+        }
+    }
 
     const searchUrl = new URL(window.location).searchParams;
     if(searchUrl.has('oauth_token') && searchUrl.has('oauth_verifier')) {

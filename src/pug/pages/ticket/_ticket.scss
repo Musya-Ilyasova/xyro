@@ -104,6 +104,10 @@
     position: relative;
     z-index: 2;
     display: none;
+    .playstation-list__count {
+      order: 1;
+      margin: 0 0 0 10px;
+    }
   }
   &__btn {
     width: fit-content;
@@ -142,6 +146,21 @@
   .btn__wrapper {
     box-shadow: 0px 36px 72px 0px rgba(95, 244, 173, 0.24), 0px 8px 16px 0px rgba(95, 244, 173, 0.16);
     border-radius: 100%;
+  }
+  .btn_share {
+    margin: 12px auto;
+    display: flex;
+    width: fit-content;
+    height: 48px;
+    line-height: 48px;
+    font-weight: 600;
+  }
+  &__congrats {
+    font-weight: 600;
+    color: $white;
+    margin: 40px auto 0;
+    text-align: center;
+    display: none;
   }
 }
 

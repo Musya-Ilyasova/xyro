@@ -211,3 +211,26 @@
     color: $white;
   }
 }
+
+.btn_share {
+  width: 100%;
+  display: inline-flex;
+  background: $blue2;
+  color: $white;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 500;
+  line-height: 36px;
+  height: 36px;
+  padding: 0 20px;
+  &:hover {
+    background: lighten($color: $blue2, $amount: 10%);
+    color: $white;
+  }
+  .icon-telegram {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    fill: $white;
+  }
+}
