@@ -8,7 +8,7 @@ const descrbTickets = {
 
 export const makeTgUrl = (isSlider = false) => {
   const urlTg = 'https://t.me/share/url?';
-  const urlVideo = 'https://invite.xyro.io/WPIZ/video/ps5.mp4';
+  const urlVideo = 'https://invite.xyro.io/video/WPIZ/ps5.mp4';
   const ref = localStorage.getItem('ref_code');
   const text1 = `Hey%21%20I%27m%20one%20of%20the%20winners%20of%20a%20Sony%20PlayStation%205%20in%20XYRO%20Referral%20Program%21%20Register%20with%20my%20lucky-link:%20invite.xyro.io%3Fr%3D${ref}%20`;
   const text2 = `Hey%21%20I%27m%20one%20of%20the%20winners%20of%20a%20Sony%20PlayStation%205%20in%20XYRO%20Referral%20Program%21%20Register%20with%20my%20lucky-link%20next%2024h%20and%20get%203%20Welcome%20Rewards%20instead%20of%201%21%20https%3A%2F%2Finvite.xyro.io%3Fr%3D${ref}%20`;
