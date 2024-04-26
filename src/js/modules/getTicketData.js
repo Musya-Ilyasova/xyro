@@ -6,12 +6,17 @@ const descrbTickets = {
   points: 'We\'ll contact you on Discord for prize distribution'
 }
 
-export const makeTgUrl = () => {
+export const makeTgUrl = (isSlider = false) => {
   const urlTg = 'https://t.me/share/url?';
-  const urlVideo = 'https://invite.xyro.io/video/ps5.mp4';
+  const urlVideo = 'https://invite.xyro.io/WPIZ/video/ps5.mp4';
   const ref = localStorage.getItem('ref_code');
-  const text = `Hey!%20Join%20XYRO%20with%20my%20link%20invite.xyro.io/eng?r=${ref}%20and%20secure%20a%20Whitelist%20NFT,%20cash%20bonuses,%20a%20PlayStation%205,%20or%20other%20valuable%20rewards`;
-  return `${urlTg}url=${urlVideo}&text=${text}`;
+  const text1 = `Hey%21%20I%27m%20one%20of%20the%20winners%20of%20a%20Sony%20PlayStation%205%20in%20XYRO%20Referral%20Program%21%20Register%20with%20my%20lucky-link:%20invite.xyro.io%3Fr%3D${ref}%20`;
+  const text2 = `Hey%21%20I%27m%20one%20of%20the%20winners%20of%20a%20Sony%20PlayStation%205%20in%20XYRO%20Referral%20Program%21%20Register%20with%20my%20lucky-link%20next%2024h%20and%20get%203%20Welcome%20Rewards%20instead%20of%201%21%20https%3A%2F%2Finvite.xyro.io%3Fr%3D${ref}%20`;
+  if(isSlider) {
+    return `${urlTg}url=${urlVideo}&text=${text1}`;
+  } else {
+    return `${urlTg}url=${urlVideo}&text=${text2}`;
+  }
 }
 
 const getTicketData = (itemData) => {
@@ -23,6 +28,7 @@ const getTicketData = (itemData) => {
   const congrats = document.querySelector('.ticket__congrats');
   const title = document.querySelector('.ticket__title');
   const btn = document.querySelector('.ticket__btn');
+  const btnContinue = document.querySelector('.btn_continue');
   const namePerson = document.querySelector('.ticket .name');
   const btnUrl = btn.href;
 
@@ -44,6 +50,7 @@ const getTicketData = (itemData) => {
       btn.classList.add('btn_share');
       congrats.style.display = 'block';
       namePerson.textContent = localStorage.getItem('grokth_name');
+      btnContinue.style.display = "block";
     }
   } else if(id === 'legendaryNFT') {
     img.setAttribute('src', '../img/tickets/nftLegend.png');

@@ -105,7 +105,7 @@ function setParticipantData(p, token) {
         let isSlider = true;
         checkRewardsShards(list, p.rewards_shards[0].current, isSlider);
         if(p.rewards_shards[0].current >= 10) {
-            document.querySelector('.slider-item .btn_share').href = makeTgUrl();
+            document.querySelector('.slider-item .btn_share').href = makeTgUrl(isSlider);
             document.querySelector('.slider-item .btn_share').setAttribute('target', '_blank');
         }
     }
