@@ -24,8 +24,14 @@ export const scripts = () => {
     .src("src/js/main.js", { sourcemaps: app.isDev })
     .pipe($.plumber())
     .pipe(webpack({ config: webpackConfig(app.isDev) }))
+    .pipe($.hash())
     .pipe(app.dest("dist/js/"))
     .pipe(strip())
+    .pipe($.hash.manifest('dist/assets.json', {
+      deleteOld: true,
+      sourceDir: app.dest("dist/js/")
+    }))
+    .pipe(app.dest('.'))
     .pipe(app.reload({
       stream: true,
       })
