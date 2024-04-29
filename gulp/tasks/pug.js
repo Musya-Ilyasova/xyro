@@ -1,8 +1,8 @@
 import $ from "../config/plagins.js";
 import strip from 'gulp-strip-comments';
-// import browserSync from 'browser-sync';
 
-const pug = () =>{
+
+export const pug = async () => {
   return app.src("src/pug/structure/**/*.pug")
     .pipe(
       $.pug({
@@ -14,4 +14,20 @@ const pug = () =>{
     .on("end", app.reload);
 }
 
-export default pug;
+
+export const pugBuild = async () => {
+  const assets = await import ("../../dist/assets.json", {assert: {type: "json"}});
+  return app.src("src/pug/structure/**/*.pug")
+    .pipe(
+      $.pug({
+        pretty: true,
+      })
+    )
+    .pipe($.replace('main.min.js', assets.default['main.min.js']))
+    .pipe($.replace('style.min.css', assets.default['style.min.css']))
+    .pipe(strip())
+    .pipe(app.dest("dist/"))
+    .on("end", app.reload);
+}
+
+

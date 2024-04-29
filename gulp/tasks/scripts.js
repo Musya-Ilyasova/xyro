@@ -5,8 +5,6 @@ import { webpackConfig } from '../../webpack.config.js';
 
 export const scriptsLibs = () => {
   return app.src([
-    // "node_modules/jquery/dist/jquery.min.js",
-    //'node_modules/object-fit-images/dist/ofi.min.js',
     'node_modules/svg4everybody/dist/svg4everybody.min.js'
   ])
     .pipe($.concat("libs.min.js"))
@@ -39,14 +37,10 @@ export const scriptsBuild = () => {
     .pipe(webpack({ config: webpackConfig(app.isDev) }))
     .pipe($.hash())
     .pipe(app.dest("dist/js/"))
-    .pipe(strip())
-    .pipe($.hash.manifest('dist/assets.json', {
+    .pipe($.hash.manifest('./assets.json', {
       deleteOld: true,
-      sourceDir: app.dest("dist/js/")
+      sourceDir: app.dest("./dist/js/")
     }))
-    .pipe(app.dest('.'))
-    .pipe(app.reload({
-      stream: true,
-      })
-    );
+    .pipe(app.dest('./dist'))
+    .pipe(strip())
 };
