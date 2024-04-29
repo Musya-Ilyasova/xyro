@@ -24,6 +24,19 @@ export const scripts = () => {
     .src("src/js/main.js", { sourcemaps: app.isDev })
     .pipe($.plumber())
     .pipe(webpack({ config: webpackConfig(app.isDev) }))
+    .pipe(app.dest("dist/js/"))
+    .pipe(strip())
+    .pipe(app.reload({
+      stream: true,
+      })
+    );
+};
+
+export const scriptsBuild = () => {
+  return app
+    .src("src/js/main.js", { sourcemaps: app.isDev })
+    .pipe($.plumber())
+    .pipe(webpack({ config: webpackConfig(app.isDev) }))
     .pipe($.hash())
     .pipe(app.dest("dist/js/"))
     .pipe(strip())

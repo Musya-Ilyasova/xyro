@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if(document.body.classList.contains('index')) {
     scrollToTheSection();
-    indexPage();
+    // indexPage();
     if(!document.body.classList.contains('winddown')) {
       timer('#mainTimer', '2024/05/1 00:00');
     }
